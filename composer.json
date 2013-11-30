@@ -1,0 +1,22 @@
+{
+    "name": "burthorpe/runescape-api",
+    "description": "Runescape API for use in Laravel projects",
+    "keywords": ["laravel", "runescape", "rs3"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "iWader",
+            "email": "hi@iwader.co.uk"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Burthorpe\\RunescapeApi\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
