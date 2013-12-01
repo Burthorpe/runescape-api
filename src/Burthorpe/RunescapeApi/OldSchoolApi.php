@@ -2,19 +2,19 @@
 
 namespace Burthorpe\RunescapeApi;
 
-class RunescapeApi
+class OldSchoolApi
 {
     /**
      * URL resources
      */
     private $resources = array(
-        'highscores_url' => 'http://hiscore.runescape.com/index_lite.ws?player=%s',
+        'highscores_url' => 'http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=%s',
     );
     
     /**
      * Runescape skills
      */
-    private $skills = array('overall', 'attack', 'defence', 'strength', 'constitution', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction', 'summoning', 'dungeoneering', 'divination');
+    private $skills = array('overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction');
     
     /**
      * A CURL wrapper for easily fetching data from a URL
@@ -40,8 +40,6 @@ class RunescapeApi
     }
     
     /**
-     * 
-     * 
      * @return string A URL to the supplied resource name
      */
     public function getResource($resource)
