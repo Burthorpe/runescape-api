@@ -17,6 +17,18 @@ class RunescapeApi
     private $skills = array('overall', 'attack', 'defence', 'strength', 'constitution', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction', 'summoning', 'dungeoneering', 'divination');
     
     /**
+     * Default combat stats
+     */
+    private $defaultStats = array(
+        'attack'       => 1,
+        'strength'     => 1,
+        'defence'      => 1,
+        'ranged'       => 1,
+        'magic'        => 1,
+        'summoning'    => 1,
+    );
+    
+    /**
      * A CURL wrapper for easily fetching data from a URL
      * 
      * @param string $url The url the curl request should fetch
@@ -85,5 +97,33 @@ class RunescapeApi
         }
         
         return $stats;
+    }
+    
+    /**
+     * Calculates a users combat level
+     * 
+     * @param array $stats An single level array of the users levels. Only combat levels are used, if missing are assumed the default levels
+     * @return array An array of calculations relating to the users combat level.
+     */
+    public function calcCombat($stats)
+    {
+        $stats = array_merge($this->defaultStats, $stats);
+        
+        $combat['highest_stat'] = 'attack';
+        $cmbSkills = array('attack', 'strength', 'ranged', 'magic', 'summoning');
+        
+        // Could use max() here but doesnt give us the name of the skill thats their highest
+        foreach ($cmbSkills as $skill)
+            if ($stats[$combat['highest_stat']] < $stats[$skill])
+                $combat['highest_stat'] = $skill;
+        
+        $combat['combat_level'] = (int) floor(($stats[$combat['highest_stat']] + $stats['defence']) + 2);
+        $combat['attack_combat'] = (int) floor(($stats['attack'] + $stats['defence']) + 2);
+        $combat['strength_combat'] = (int) floor(($stats['strength'] + $stats['defence']) + 2);
+        $combat['ranged_combat'] = (int) floor(($stats['ranged'] + $stats['defence']) + 2);
+        $combat['magic_combat'] = (int) floor(($stats['magic'] + $stats['defence']) + 2);
+        $combat['summoning_combat'] = (int) floor(($stats['summoning'] + $stats['defence']) + 2);
+        
+        return $combat;
     }
 }
