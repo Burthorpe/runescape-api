@@ -168,9 +168,11 @@ class OldSchoolApi
     /**
      * Shorten a number to K, M, B. e.g: 5,000 becomes 5k.
      * 
-     * @return array Array of the formatted number, the shortened number, suffix and html colours
+     * @param int $num The number being shortened
+     * @param boolean $useful If an array of useful items should be returned
+     * @return string|array String of the formatted number or Array of the formatted number, the shortened number, suffix and html colours
      */
-    public function shortenNumber($num)
+    public function shortenNumber($num, $useful = false)
     {
         $abbrevs = array(9 => 'B', 6 => 'M', 3 => 'K', 0 => '');
         
@@ -196,6 +198,33 @@ class OldSchoolApi
                 $return['colour'] = '#555555';
         }
         
-        return $return;
+        return ($useful ? $return : $return['formatted']);
+    }
+    
+    /**
+     * Expends a shortened number. e.g: 5k becomes 5,000
+     * 
+     * @param string $num
+     * @return int The expanded number
+     */
+    public function expandNumber($num, $useful = false)
+    {
+        $multiplier = 1;
+        $num = strtoupper($num);
+        $suffix = substr($num, -1);
+        
+        switch($suffix)
+        {
+            case 'B':
+                $multiplier = 1000000000;
+                break;
+            case 'M':
+                $multiplier = 1000000;
+                break;
+            case 'K':
+                $multiplier = 1000;
+        }
+        
+        return round(floatval($num) * $multiplier, 1);
     }
 }
