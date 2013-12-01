@@ -128,4 +128,36 @@ class OldSchoolApi
         
         return $combat;
     }
+    
+    /**
+     * Convert experience to a level
+     */
+    public function expToLevel($exp)
+    {
+        $modifier = 0;
+        
+        for ($i = 1; $i <= 200; $i++)
+        {
+            $modifier += floor($i + 300 * (2 ^ ($i / 7)));
+            $level = floor($modifier/4);
+            
+            if ($exp < $level)
+                return $i;
+        }
+        
+        return 200;
+    }
+    
+    /**
+     * Convert a level to experience
+     */
+    public function levelToExp($level)
+    {
+        $exp = 0;
+        
+        for ($i = 1; $i < $level; $i++)
+            $exp += floor($i + 300 * (2 ^ ($i / 7)));
+        
+        return floor($exp / 4);
+    }
 }
