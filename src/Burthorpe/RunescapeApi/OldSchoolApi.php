@@ -131,6 +131,8 @@ class OldSchoolApi
     
     /**
      * Convert experience to a level
+     * 
+     * @return int The level the given experience corresponds to
      */
     public function expToLevel($exp)
     {
@@ -150,6 +152,8 @@ class OldSchoolApi
     
     /**
      * Convert a level to experience
+     * 
+     * @return int The experience that corresponds to the given level
      */
     public function levelToExp($level)
     {
