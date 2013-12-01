@@ -1,8 +1,9 @@
 <?php
 
-namespace Burthorpe\RunescapeApi;
+namespace Burthorpe\RunescapeApi\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Burthorpe\RunescapeApi\RunescapeApi;
 
 class RunescapeApiServiceProvider extends ServiceProvider
 {
@@ -21,12 +22,12 @@ class RunescapeApiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package( 'burthorpe/runescape-api' );
+        $this->package('burthorpe/runescape-api');
 
-        $this->app['runescape_api'] = $this->app->share( function($app)
+        $this->app['runescape_api'] = $this->app->share(function($app)
         {
             return new RunescapeApi;
-        } );
+        });
     }
 
     /**
@@ -46,7 +47,7 @@ class RunescapeApiServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array( 'runescape_api' );
+        return array('runescape_api');
     }
 
 }
