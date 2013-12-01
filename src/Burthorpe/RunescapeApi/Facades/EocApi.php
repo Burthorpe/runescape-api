@@ -4,7 +4,7 @@ namespace Burthorpe\RunescapeApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class OldSchoolApi extends Facade
+class EocApi extends Facade
 {
 
     /**
@@ -14,7 +14,7 @@ class OldSchoolApi extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'oldschool_api';
+        return 'runescape_api.eoc';
     }
 
 }

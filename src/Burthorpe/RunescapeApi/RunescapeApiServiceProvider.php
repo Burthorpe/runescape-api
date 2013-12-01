@@ -1,14 +1,12 @@
 <?php
 
-namespace Burthorpe\RunescapeApi\Providers;
+namespace Burthorpe\RunescapeApi;
 
 use Illuminate\Support\ServiceProvider;
-use Burthorpe\RunescapeApi\RunescapeApi;
-use Burthorpe\RunescapeApi\OldSchoolApi;
 
-class OldSchoolApiServiceProvider extends ServiceProvider
+class RunescapeApiServiceProvider extends ServiceProvider
 {
-
+    
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -30,9 +28,14 @@ class OldSchoolApiServiceProvider extends ServiceProvider
             return new RunescapeApi;
         });
         
-        $this->app['oldschool_api'] = $this->app->share(function($app)
+        $this->app['runescape_api.eoc'] = $this->app->share(function($app)
         {
-            return new OldSchoolApi;
+            return new EocApi;
+        });
+        
+        $this->app['runescape_api.os'] = $this->app->share(function($app)
+        {
+            return new OsApi;
         });
     }
 
@@ -53,7 +56,7 @@ class OldSchoolApiServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('runescape_api', 'oldschool_api');
+        return array('runescape_api', 'runescape_api.eoc', 'runescape_api.os');
     }
 
 }
