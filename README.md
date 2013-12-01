@@ -21,13 +21,13 @@ Update your packages with `composer update` or install with `composer install`.
 Once Composer has installed or updated your packages you need to register the package with Laravel. Open up `app/config/app.php` and find the providers key, add:
 
 ```php
-'Burthorpe\RunescapeApi\Providers\RunescapeApiServiceProvider',
-'Burthorpe\RunescapeApi\Providers\OldSchoolApiServiceProvider'
+'Burthorpe\RunescapeApi\RunescapeApiServiceProvider',
 ```
 
-In the aliases section, ass:
+In the aliases section, add:
 
 ```php
 'RunescapeApi' => 'Burthorpe\RunescapeApi\Facades\RunescapeApi',
-'OldSchoolApi' => 'Burthorpe\RunescapeApi\Facades\OldSchoolApi'
+'EocApi'       => 'Burthorpe\RunescapeApi\Facades\EocApi',
+'OsApi'        => 'Burthorpe\RunescapeApi\Facades\OsApi',
 ```
