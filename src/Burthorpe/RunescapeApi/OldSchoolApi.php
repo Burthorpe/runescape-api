@@ -147,7 +147,7 @@ class OldSchoolApi
                 return $i;
         }
         
-        return 200;
+        return 200; // Max possible level
     }
     
     /**
@@ -163,5 +163,39 @@ class OldSchoolApi
             $exp += floor($i + 300 * (2 ^ ($i / 7)));
         
         return floor($exp / 4);
+    }
+    
+    /**
+     * Shorten a number to K, M, B. e.g: 5,000 becomes 5k.
+     * 
+     * @return array Array of the formatted number, the shortened number, suffix and html colours
+     */
+    public function shortenNumber($num)
+    {
+        $abbrevs = array(9 => 'B', 6 => 'M', 3 => 'K', 0 => '');
+        
+        foreach($abbrevs as $exponent => $suffix)
+            if ($num >= pow(10, $exponent))
+            {
+                $return['shortened'] = intval($num / pow(10, $exponent));
+                $return['suffix'] = $suffix;
+                $return['formatted'] = intval($num / pow(10, $exponent)) . $suffix;
+                
+                break;
+            }
+        
+        switch($return['suffix'])
+        {
+            case 'B':
+                $return['colour'] = '#00CC66';
+                break;
+            case 'M':
+                $return['colour'] = '#FF9900';
+                break;
+            default:
+                $return['colour'] = '#555555';
+        }
+        
+        return $return;
     }
 }
