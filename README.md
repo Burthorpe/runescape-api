@@ -1,10 +1,10 @@
-Runescape API
-===============================
+# Runescape API
+
+[![Build Status](https://travis-ci.org/Burthorpe/runescape-api.svg?branch=master)](https://travis-ci.org/Burthorpe/runescape-api)
 
 Provides an interface to interact with the runescape site and APIs.
 
-Installation
-------------
+## Installation
 
 Add `burthorpe/runescape-api` as a requirement to your composer.json:
 
