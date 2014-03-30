@@ -31,3 +31,7 @@ In the aliases section, add:
 'EocApi'       => 'Burthorpe\RunescapeApi\Facades\EocApi',
 'OsApi'        => 'Burthorpe\RunescapeApi\Facades\OsApi',
 ```
+
+## Copyright & License
+
+Copyright (c) 2014 Wade Urry - Released under the [MIT license](LICENSE).
