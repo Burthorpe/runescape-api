@@ -96,4 +96,34 @@ class RunescapeApiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals('1B', $this->RunescapeApi->shortenNumber(1000000000));
   }
 
+  public function testUnder1000ExpandNumber()
+  {
+    $this->assertEquals(999, $this->RunescapeApi->expandNumber(999));
+  }
+
+  public function test1kExpandNumber()
+  {
+    $this->assertEquals(1000, $this->RunescapeApi->expandNumber('1k'));
+  }
+
+  public function test999kExpandNumber()
+  {
+    $this->assertEquals(999000, $this->RunescapeApi->expandNumber('999k'));
+  }
+
+  public function test1mExpandNumber()
+  {
+    $this->assertEquals(1000000, $this->RunescapeApi->expandNumber('1m'));
+  }
+
+  public function test999mExpandNumber()
+  {
+    $this->assertEquals(999000000, $this->RunescapeApi->expandNumber('999m'));
+  }
+
+  public function test1bExpandNumber()
+  {
+    $this->assertEquals(1000000000, $this->RunescapeApi->expandNumber('1b'));
+  }
+
 }
