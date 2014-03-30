@@ -28,6 +28,7 @@ class RunescapeApi {
     /**
      * Convert experience to a level
      *
+     * @param int The experience to calculate the level achieved
      * @return int The level the given experience corresponds to
      */
     public function expToLevel($exp)
@@ -49,6 +50,7 @@ class RunescapeApi {
     /**
      * Convert a level to experience
      *
+     * @param int The level to return the amount of experience required to achieve
      * @return int The experience that corresponds to the given level
      */
     public function levelToExp($level)
