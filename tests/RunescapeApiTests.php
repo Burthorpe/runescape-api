@@ -2,12 +2,12 @@
 
 use Burthorpe\RunescapeApi\RunescapeApi;
 
-class RunescapeApiTest extends PHPUnit_Framework_TestCase {
+class RunescapeApiTests extends PHPUnit_Framework_TestCase {
 
   /**
    * RunescapeApi instance
    *
-   * @var Burthorpe/RunescapeApi
+   * @var Burthorpe\RunescapeApi\RunescapeApi
    */
   protected $RunescapeApi;
 
