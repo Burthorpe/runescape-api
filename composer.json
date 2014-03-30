@@ -6,17 +6,18 @@
     "authors": [
         {
             "name": "iWader",
-            "email": "hi@iwader.co.uk"
+            "email": "wader@iwader.co.uk",
+            "homepage": "http://iwader.co.uk"
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.0.*"
+        "php": ">=5.4.0",
+        "illuminate/support": "4.1.*"
     },
     "autoload": {
         "psr-0": {
             "Burthorpe\\RunescapeApi\\": "src/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
