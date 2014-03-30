@@ -5,19 +5,19 @@ class OsApi {
     /**
      * URL resources
      */
-    private $resources = array(
+    private $resources = [
         'highscores_url' => 'http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=%s',
-    );
+    ];
 
     /**
      * Runescape skills
      */
-    private $skills = array('overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction');
+    private $skills = ['overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction'];
 
     /**
      * Default combat stats
      */
-    private $defaultStats = array(
+    private $defaultStats = [
         'attack'    => 1,
         'strength'  => 1,
         'defence'   => 1,
@@ -25,7 +25,7 @@ class OsApi {
         'ranged'    => 1,
         'prayer'    => 1,
         'magic'     => 1,
-    );
+    ];
 
     /**
      * @return string A URL to the supplied resource name
@@ -59,7 +59,7 @@ class OsApi {
             return false;
 
         $result = explode("\n", $result);
-        $stats = array();
+        $stats = [];
 
         for ($i = 0; $i < count($this->skills); $i++)
         {
@@ -95,11 +95,11 @@ class OsApi {
         else
             $combat['remainder_diff'] = $combat['combat_level'] + 1;
 
-        $combat['remainders'] = array(
+        $combat['remainders'] = [
             'strength_attack' => ceil($combat['remainder_diff'] / (1.0/3.0)),
             'defence_constitution' => ceil($combat['remainder_diff'] / (0.25)),
             'prayer' => ceil($combat['remainder_diff'] / 0.125),
-        );
+        ];
 
         return $combat;
     }

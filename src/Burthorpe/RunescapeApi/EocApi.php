@@ -5,26 +5,26 @@ class EocApi {
     /**
      * URL resources
      */
-    private $resources = array(
+    private $resources = [
         'highscores_url' => 'http://hiscore.runescape.com/index_lite.ws?player=%s',
-    );
+    ];
 
     /**
      * Runescape skills
      */
-    private $skills = array('overall', 'attack', 'defence', 'strength', 'constitution', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction', 'summoning', 'dungeoneering', 'divination');
+    private $skills = ['overall', 'attack', 'defence', 'strength', 'constitution', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction', 'summoning', 'dungeoneering', 'divination'];
 
     /**
      * Default combat stats
      */
-    private $defaultStats = array(
+    private $defaultStats = [
         'attack'       => 1,
         'strength'     => 1,
         'defence'      => 1,
         'ranged'       => 1,
         'magic'        => 1,
         'summoning'    => 1,
-    );
+    ];
 
     /**
      *
@@ -60,7 +60,7 @@ class EocApi {
             return false;
 
         $result = explode("\n", $result);
-        $stats = array();
+        $stats = [];
 
         for ($i = 0; $i < count($this->skills); $i++)
         {
@@ -85,7 +85,7 @@ class EocApi {
         $stats = array_merge($this->defaultStats, $stats);
 
         $combat['highest_stat'] = 'attack';
-        $cmbSkills = array('attack', 'strength', 'ranged', 'magic', 'summoning');
+        $cmbSkills = ['attack', 'strength', 'ranged', 'magic', 'summoning'];
 
         // Could use max() here but doesnt give us the name of the skill thats their highest
         foreach ($cmbSkills as $skill)

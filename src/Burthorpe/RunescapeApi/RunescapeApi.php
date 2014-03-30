@@ -72,7 +72,7 @@ class RunescapeApi {
      */
     public function shortenNumber($num, $useful = false)
     {
-        $abbrevs = array(9 => 'B', 6 => 'M', 3 => 'K', 0 => '');
+        $abbrevs = [9 => 'B', 6 => 'M', 3 => 'K', 0 => ''];
 
         foreach($abbrevs as $exponent => $suffix)
             if ($num >= pow(10, $exponent))
