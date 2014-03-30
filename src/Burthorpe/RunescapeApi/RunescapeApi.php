@@ -34,16 +34,16 @@ class RunescapeApi {
     {
         $modifier = 0;
 
-        for ($i = 1; $i <= 200; $i++)
+        for ($i = 1; $i <= 127; $i++)
         {
-            $modifier += floor($i + 300 * (2 ^ ($i / 7)));
+            $modifier += floor($i + 300 * pow(2, ($i / 7)));
             $level = floor($modifier/4);
 
             if ($exp < $level)
                 return $i;
         }
 
-        return 200; // Max possible level
+        return 126; // Max possible level
     }
 
     /**
@@ -56,7 +56,7 @@ class RunescapeApi {
         $exp = 0;
 
         for ($i = 1; $i < $level; $i++)
-            $exp += floor($i + 300 * (2 ^ ($i / 7)));
+            $exp += floor($i + 300 * pow(2, ($i / 7)));
 
         return floor($exp / 4);
     }
