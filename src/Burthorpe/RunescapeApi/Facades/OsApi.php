@@ -1,11 +1,8 @@
-<?php
-
-namespace Burthorpe\RunescapeApi\Facades;
+<?php namespace Burthorpe\RunescapeApi\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class OsApi extends Facade
-{
+class OsApi extends Facade {
 
     /**
      * Get the registered name of the component.

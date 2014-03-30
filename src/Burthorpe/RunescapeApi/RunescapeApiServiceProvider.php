@@ -1,12 +1,9 @@
-<?php
-
-namespace Burthorpe\RunescapeApi;
+<?php namespace Burthorpe\RunescapeApi;
 
 use Illuminate\Support\ServiceProvider;
 
-class RunescapeApiServiceProvider extends ServiceProvider
-{
-    
+class RunescapeApiServiceProvider extends ServiceProvider {
+
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -27,12 +24,12 @@ class RunescapeApiServiceProvider extends ServiceProvider
         {
             return new RunescapeApi;
         });
-        
+
         $this->app['runescape_api.eoc'] = $this->app->share(function($app)
         {
             return new EocApi;
         });
-        
+
         $this->app['runescape_api.os'] = $this->app->share(function($app)
         {
             return new OsApi;
