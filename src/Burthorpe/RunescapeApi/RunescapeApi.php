@@ -58,7 +58,7 @@ class RunescapeApi {
         for ($i = 1; $i < $level; $i++)
             $exp += floor($i + 300 * pow(2, ($i / 7)));
 
-        return floor($exp / 4);
+        return (floor($exp / 4) > 200000000 ? 200000000 : floor($exp / 4)); // Return maximum possible exp
     }
 
     /**

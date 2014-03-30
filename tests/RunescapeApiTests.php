@@ -41,4 +41,29 @@ class RunescapeApiTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(126, $this->RunescapeApi->expToLevel(188884740));
   }
 
+  public function testMinimumLevelToExp()
+  {
+    $this->assertEquals(0, $this->RunescapeApi->levelToExp(1));
+  }
+
+  public function testMaximumLevelToExp()
+  {
+    $this->assertEquals(188884740, $this->RunescapeApi->levelToExp(126));
+  }
+
+  public function testLevel99LevelToExp()
+  {
+    $this->assertEquals(13034431, $this->RunescapeApi->levelToExp(99));
+  }
+
+  public function testLevel120LevelToExp()
+  {
+    $this->assertEquals(104273167, $this->RunescapeApi->levelToExp(120));
+  }
+
+  public function testLevel127LevelToExp()
+  {
+    $this->assertEquals(200000000, $this->RunescapeApi->levelToExp(127));
+  }
+
 }
