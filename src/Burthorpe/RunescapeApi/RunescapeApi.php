@@ -102,7 +102,7 @@ class RunescapeApi {
     /**
      * Expends a shortened number. e.g: 5k becomes 5,000
      *
-     * @param string $num
+     * @param string The shortened number to be expanded
      * @return int The expanded number
      */
     public function expandNumber($num)
