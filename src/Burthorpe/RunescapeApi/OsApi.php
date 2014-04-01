@@ -5,19 +5,19 @@ class OsApi {
     /**
      * URL resources
      */
-    private $resources = [
+    protected $resources = [
         'highscores_url' => 'http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=%s',
     ];
 
     /**
      * Runescape skills
      */
-    private $skills = ['overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction'];
+    protected $skills = ['overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction'];
 
     /**
      * Default combat stats
      */
-    private $defaultStats = [
+    protected $defaultStats = [
         'attack'    => 1,
         'strength'  => 1,
         'defence'   => 1,
