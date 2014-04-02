@@ -97,7 +97,7 @@ class OsApi {
 
         $combat['remainders'] = [
             'strength_attack' => ceil($combat['remainder_diff'] / (1.0/3.0)),
-            'defence_constitution' => ceil($combat['remainder_diff'] / (0.25)),
+            'defence_hitpoints' => ceil($combat['remainder_diff'] / (0.25)),
             'prayer' => ceil($combat['remainder_diff'] / 0.125),
         ];
 
