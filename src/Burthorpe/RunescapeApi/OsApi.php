@@ -88,7 +88,7 @@ class OsApi {
         $combat['base_ranged'] = floor($stats['ranged'] * 1.5) * 0.325;
         $combat['base_magic'] = floor($stats['magic'] * 1.5) * 0.325;
 
-        $combat['combat_level'] = $combat['base_level'] + max($combat['base_melee'], $combat['base_range'], $combat['base_magic']);
+        $combat['combat_level'] = $combat['base_level'] + max($combat['base_melee'], $combat['base_ranged'], $combat['base_magic']);
 
         if (is_float($combat['combat_level']))
             $combat['remainder_diff'] = ceil($combat['combat_level']) - $combat['combat_level'];
