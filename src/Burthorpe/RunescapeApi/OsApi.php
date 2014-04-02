@@ -85,7 +85,7 @@ class OsApi {
 
         $combat['base_level'] = ($stats['defence'] + $stats['hitpoints'] + floor($stats['prayer'] / 2)) * 0.25;
         $combat['base_melee'] = ($stats['attack'] + $stats['strength']) * 0.325;
-        $combat['base_range'] = floor($stats['ranged'] * 1.5) * 0.325;
+        $combat['base_ranged'] = floor($stats['ranged'] * 1.5) * 0.325;
         $combat['base_magic'] = floor($stats['magic'] * 1.5) * 0.325;
 
         $combat['combat_level'] = $combat['base_level'] + max($combat['base_melee'], $combat['base_range'], $combat['base_magic']);
