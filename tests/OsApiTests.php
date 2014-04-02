@@ -131,4 +131,95 @@ class OsApiTests extends PHPUnit_Framework_TestCase {
     $this->assertEquals(1, $combat['remainders']['prayer']);
   }
 
+  public function testMaxHitpointsCalcCombat()
+  {
+    $combat = $this->OsApi->calcCombat([
+        'attack'    => 1,
+        'strength'  => 1,
+        'defence'   => 1,
+        'hitpoints' => 99,
+        'ranged'    => 1,
+        'prayer'    => 1,
+        'magic'     => 1,
+      ]);
+
+    $this->assertEquals(25, $combat['base_level']);
+    $this->assertEquals(0.65, $combat['base_melee']);
+    $this->assertEquals(0.325, $combat['base_ranged']);
+    $this->assertEquals(0.325, $combat['base_magic']);
+    $this->assertEquals(25.65, $combat['combat_level']);
+    $this->assertEquals(0.35, $combat['remainder_diff']);
+    $this->assertEquals(2, $combat['remainders']['strength_attack']);
+    $this->assertEquals(2, $combat['remainders']['defence_hitpoints']);
+    $this->assertEquals(3, $combat['remainders']['prayer']);
+  }
+
+  public function testMaxRangedCalcCombat()
+  {
+    $combat = $this->OsApi->calcCombat([
+        'attack'    => 1,
+        'strength'  => 1,
+        'defence'   => 1,
+        'hitpoints' => 10,
+        'ranged'    => 99,
+        'prayer'    => 1,
+        'magic'     => 1,
+      ]);
+
+    $this->assertEquals(2.75, $combat['base_level']);
+    $this->assertEquals(0.65, $combat['base_melee']);
+    $this->assertEquals(48.1, $combat['base_ranged']);
+    $this->assertEquals(0.325, $combat['base_magic']);
+    $this->assertEquals(50.85, $combat['combat_level']);
+    $this->assertEquals(0.15, $combat['remainder_diff']);
+    $this->assertEquals(1, $combat['remainders']['strength_attack']);
+    $this->assertEquals(1, $combat['remainders']['defence_hitpoints']);
+    $this->assertEquals(2, $combat['remainders']['prayer']);
+  }
+
+  public function testMaxPrayerCalcCombat()
+  {
+    $combat = $this->OsApi->calcCombat([
+        'attack'    => 1,
+        'strength'  => 1,
+        'defence'   => 1,
+        'hitpoints' => 10,
+        'ranged'    => 1,
+        'prayer'    => 99,
+        'magic'     => 1,
+      ]);
+
+    $this->assertEquals(15, $combat['base_level']);
+    $this->assertEquals(0.65, $combat['base_melee']);
+    $this->assertEquals(0.325, $combat['base_ranged']);
+    $this->assertEquals(0.325, $combat['base_magic']);
+    $this->assertEquals(15.65, $combat['combat_level']);
+    $this->assertEquals(0.35, $combat['remainder_diff']);
+    $this->assertEquals(2, $combat['remainders']['strength_attack']);
+    $this->assertEquals(2, $combat['remainders']['defence_hitpoints']);
+    $this->assertEquals(3, $combat['remainders']['prayer']);
+  }
+
+  public function testMaxMagicCalcCombat()
+  {
+    $combat = $this->OsApi->calcCombat([
+        'attack'    => 1,
+        'strength'  => 1,
+        'defence'   => 1,
+        'hitpoints' => 10,
+        'ranged'    => 1,
+        'magic'     => 99,
+      ]);
+
+    $this->assertEquals(2.75, $combat['base_level']);
+    $this->assertEquals(0.65, $combat['base_melee']);
+    $this->assertEquals(0.325, $combat['base_ranged']);
+    $this->assertEquals(48.1, $combat['base_magic']);
+    $this->assertEquals(50.85, $combat['combat_level']);
+    $this->assertEquals(0.15, $combat['remainder_diff']);
+    $this->assertEquals(1, $combat['remainders']['strength_attack']);
+    $this->assertEquals(1, $combat['remainders']['defence_hitpoints']);
+    $this->assertEquals(2, $combat['remainders']['prayer']);
+  }
+
 }
