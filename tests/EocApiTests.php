@@ -11,9 +11,31 @@ class EocApiTests extends PHPUnit_Framework_TestCase {
    */
   protected $EocApi;
 
+  /**
+   * Display name of control subject. (The name used throughout tests)
+   * Idealy this is a player who doesn't change their name
+   *
+   * @var String
+   */
+  protected $controlUser = 'Zezima';
+
   public function setUp()
   {
     $this->EocApi = new EocApi;
+  }
+
+  public function testValidGetStats()
+  {
+    $stats = $this->EocApi->getStats($this->controlUser);
+
+    $this->assertInternalType('array', $stats);
+  }
+
+  public function testInvalidGetStats()
+  {
+    $stats = $this->EocApi->getStats('stringthatisinvalidname');
+
+    $this->assertFalse($stats);
   }
 
   public function testMinimumCalcCombat()
