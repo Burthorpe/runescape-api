@@ -11,9 +11,31 @@ class OsApiTests extends PHPUnit_Framework_TestCase {
    */
   protected $OsApi;
 
+  /**
+   * Display name of control subject. (The name used throughout tests)
+   * Idealy this is a player who doesn't change their name
+   *
+   * @var String
+   */
+  protected $controlUser = 'Vestfold';
+
   public function setUp()
   {
     $this->OsApi = new OsApi;
+  }
+
+  public function testValidGetStats()
+  {
+    $stats = $this->OsApi->getStats($this->controlUser);
+
+    $this->assertInternalType('array', $stats);
+  }
+
+  public function testInvalidGetStats()
+  {
+    $stats = $this->OsApi->getStats('stringthatisinvalidname');
+
+    $this->assertFalse($stats);
   }
 
   public function testMinimumCalcCombat()
