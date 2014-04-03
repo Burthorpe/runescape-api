@@ -121,18 +121,4 @@ class EocApi {
         return $combat;
     }
 
-    /**
-     * Checks the given string is a valid Display Name
-     *
-     * @param String A Runescape Display Name
-     * @return boolean If the given Display Name is valid or not
-     */
-    public function validateRsn($rsn)
-    {
-      if (preg_match('/^[a-z0-9\-_ ]{1,12}$/i', $rsn))
-        return true;
-
-      return false;
-    }
-
 }

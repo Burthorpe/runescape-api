@@ -11,6 +11,14 @@ class RunescapeApiTests extends PHPUnit_Framework_TestCase {
    */
   protected $RunescapeApi;
 
+  /**
+   * Display name of control subject. (The name used throughout tests)
+   * Idealy this is a player who doesn't change their name
+   *
+   * @var String
+   */
+  protected $controlUser = 'Zezima';
+
   public function setUp()
   {
     $this->RunescapeApi = new RunescapeApi;
@@ -124,6 +132,31 @@ class RunescapeApiTests extends PHPUnit_Framework_TestCase {
   public function test1bExpandNumber()
   {
     $this->assertEquals(1000000000, $this->RunescapeApi->expandNumber('1b'));
+  }
+
+  public function testLengthRestrictionsValidateRsn()
+  {
+    // String too short
+    $this->assertFalse($this->RunescapeApi->validateRsn(''));
+
+    // String too long
+    $this->assertFalse($this->RunescapeApi->validateRsn('abcdefghijklm'));
+
+    // String at min length
+    $this->assertTrue($this->RunescapeApi->validateRsn('a'));
+
+    // String at max length
+    $this->assertTrue($this->RunescapeApi->validateRsn('abcdefghijkl'));
+  }
+
+  public function testInvalidCharactersValidateRsn()
+  {
+    $this->assertFalse($this->RunescapeApi->validateRsn('ab&^%as'));
+  }
+
+  public function testControlUserValidateRsn()
+  {
+    $this->assertTrue($this->RunescapeApi->validateRsn($this->controlUser));
   }
 
 }
