@@ -15,16 +15,32 @@ class OsApi {
     protected $skills = ['overall', 'attack', 'defence', 'strength', 'hitpoints', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblore', 'agility', 'thieving', 'slayer', 'farming', 'runecrafting', 'hunter', 'construction'];
 
     /**
-     * Default combat stats
+     * Default stats
      */
     protected $defaultStats = [
-        'attack'    => 1,
-        'strength'  => 1,
-        'defence'   => 1,
-        'hitpoints' => 10,
-        'ranged'    => 1,
-        'prayer'    => 1,
-        'magic'     => 1,
+        'attack'       => 1,
+        'defence'      => 1,
+        'strength'     => 1,
+        'hitpoints'    => 10,
+        'ranged'       => 1,
+        'prayer'       => 1,
+        'magic'        => 1,
+        'cooking'      => 1,
+        'woodcutting'  => 1,
+        'fletching'    => 1,
+        'fishing'      => 1,
+        'firemaking'   => 1,
+        'crafting'     => 1,
+        'smithing'     => 1,
+        'mining'       => 1,
+        'herblore'     => 1,
+        'agility'      => 1,
+        'thieving'     => 1,
+        'slayer'       => 1,
+        'farming'      => 1,
+        'runecraft'    => 1,
+        'hunter'       => 1,
+        'construction' => 1,
     ];
 
     /**
@@ -66,8 +82,8 @@ class OsApi {
             $stat = explode(",", $result[$i]);
 
             $stats[$this->skills[$i]]['rank'] = (int) $stat[0];
-            $stats[$this->skills[$i]]['level'] = (int) $stat[1];
-            $stats[$this->skills[$i]]['exp'] = (int) $stat[2];
+            $stats[$this->skills[$i]]['level'] = (int) ($stat[1] == -1 ? $this->defaultStats[$this->skills[$i]] : $stat[1]);
+            $stats[$this->skills[$i]]['exp'] = (int) ($stat[2] == -1 ? 1 : $stat[2]);
         }
 
         return $stats;
