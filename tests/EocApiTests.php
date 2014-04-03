@@ -149,4 +149,29 @@ class EocApiTests extends PHPUnit_Framework_TestCase {
     $this->assertEquals(102, $combat['magic_combat']);
   }
 
+  public function testLengthRestrictionsValidateRsn()
+  {
+    // String too short
+    $this->assertFalse($this->EocApi->validateRsn(''));
+
+    // String too long
+    $this->assertFalse($this->EocApi->validateRsn('abcdefghijklm'));
+
+    // String at min length
+    $this->assertTrue($this->EocApi->validateRsn('a'));
+
+    // String at max length
+    $this->assertTrue($this->EocApi->validateRsn('abcdefghijkl'));
+  }
+
+  public function testInvalidCharactersValidateRsn()
+  {
+    $this->assertFalse($this->EocApi->validateRsn('ab&^%as'));
+  }
+
+  public function testControlUserValidateRsn()
+  {
+    $this->assertTrue($this->EocApi->validateRsn($this->controlUser));
+  }
+
 }
