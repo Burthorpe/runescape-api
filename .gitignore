@@ -2,6 +2,9 @@
 /vendor
 composer.phar
 
+# IDE
+/.idea
+
 # OS
 .DS_Store
 Thumbs.db
