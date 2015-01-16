@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Burthorpe\\RunescapeApi": "src/"
+            "Burthorpe\\RunescapeApi\\": "src/Burthorpe/RunescapeApi"
         }
     },
     "minimum-stability": "dev"
