@@ -1,7 +1,7 @@
 {
     "name": "burthorpe/runescape-api",
     "description": "Runescape API",
-    "keywords": ["laravel", "runescape", "rs3"],
+    "keywords": ["burthorpe", "runescape", "jagex"],
     "license": "MIT",
     "authors": [
         {
