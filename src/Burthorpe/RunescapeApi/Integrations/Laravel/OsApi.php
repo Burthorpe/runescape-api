@@ -1,8 +1,8 @@
-<?php namespace Burthorpe\RunescapeApi\Facades;
+<?php namespace Burthorpe\RunescapeApi\Integrations\Laravel;
 
 use Illuminate\Support\Facades\Facade;
 
-class RunescapeApi extends Facade {
+class OsApi extends Facade {
 
     /**
      * Get the registered name of the component.
@@ -11,7 +11,7 @@ class RunescapeApi extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'runescape_api';
+        return 'runescape_api.os';
     }
 
 }

@@ -1,6 +1,6 @@
 {
     "name": "burthorpe/runescape-api",
-    "description": "Runescape API for use in Laravel projects",
+    "description": "Runescape API",
     "keywords": ["laravel", "runescape", "rs3"],
     "license": "MIT",
     "authors": [
