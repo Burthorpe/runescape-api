@@ -24,14 +24,6 @@ Once Composer has installed or updated your packages you need to register the pa
 'Burthorpe\RunescapeApi\Integrations\Laravel\RunescapeApiServiceProvider',
 ```
 
-In the aliases section, add:
-
-```php
-'RunescapeApi' => 'Burthorpe\RunescapeApi\Facades\RunescapeApi',
-'EocApi'       => 'Burthorpe\RunescapeApi\Facades\EocApi',
-'OsApi'        => 'Burthorpe\RunescapeApi\Facades\OsApi',
-```
-
 ## Copyright & License
 
 Copyright (c) 2014 Wade Urry - Released under the [MIT license](LICENSE).
