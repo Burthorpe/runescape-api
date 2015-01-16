@@ -11,7 +11,7 @@ Add `burthorpe/runescape-api` as a requirement to your composer.json:
 ```javascript
 {
     "require": {
-        "burthorpe/runescape-api": "*"
+        "burthorpe/runescape-api": "dev-master"
     }
 }
 ```
