@@ -1,4 +1,4 @@
-<?php namespace Burthorpe\RunescapeApi;
+<?php namespace Burthorpe\RunescapeApi\Integrations\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 
