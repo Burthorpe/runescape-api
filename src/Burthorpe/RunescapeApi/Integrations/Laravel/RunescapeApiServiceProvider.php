@@ -18,8 +18,6 @@ class RunescapeApiServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->package('burthorpe/runescape-api');
-
         $this->app['runescape_api'] = $this->app->share(function($app)
         {
             return new RunescapeApi;
