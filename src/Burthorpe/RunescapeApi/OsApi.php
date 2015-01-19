@@ -43,6 +43,18 @@ class OsApi {
         'construction' => 1,
     ];
 
+    /*
+     * API instance
+     *
+     * @var Burthorpe\RunescapeApi\RunescapeApi
+     */
+    protected $api;
+
+    public function __construct()
+    {
+        $this->api = new RunescapeApi;
+    }
+
     /**
      * @return string A URL to the supplied resource name
      */
@@ -69,7 +81,7 @@ class OsApi {
      */
     public function getStats($rsn)
     {
-        $result = RunescapeApi::curl(sprintf($this->getResource('highscores_url'), $rsn));
+        $result = $this->api->curl(sprintf($this->getResource('highscores_url'), $rsn));
 
         if ($result === false)
             return false;
@@ -83,7 +95,7 @@ class OsApi {
 
             $stats[$this->skills[$i]]['rank'] = (int) $stat[0];
             $stats[$this->skills[$i]]['level'] = (int) ($stat[1] == -1 ? $this->defaultStats[$this->skills[$i]] : $stat[1]);
-            $stats[$this->skills[$i]]['exp'] = (int) ($stat[2] == -1 ? 1 : $stat[2]);
+            $stats[$this->skills[$i]]['xp'] = (int) ($stat[2] == -1 ? 1 : $stat[2]);
         }
 
         return $stats;

@@ -46,6 +46,18 @@ class EocApi {
         'divination'    => 1,
     ];
 
+    /*
+     * Api instance
+     *
+     * @var Burthorpe\RunescapeApi\RunescapeApi
+     */
+    protected $api;
+
+    public function __construct()
+    {
+        $this->api = new RunescapeApi;
+    }
+
     /**
      *
      *
@@ -74,7 +86,7 @@ class EocApi {
      */
     public function getStats($rsn)
     {
-        $result = RunescapeApi::curl(sprintf($this->getResource('highscores_url'), $rsn));
+        $result = $this->api->curl(sprintf($this->getResource('highscores_url'), $rsn));
 
         if ($result === false)
             return false;
