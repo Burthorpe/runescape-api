@@ -1,4 +1,4 @@
-<?php namespace Burthorpe\RunescapeApi\Skills;
+<?php namespace Burthorpe\Runescape\Skills;
 
 class Agility extends Skill {
 

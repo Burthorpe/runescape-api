@@ -1,13 +1,13 @@
-<?php namespace Burthorpe\RunescapeApi\Skills;
+<?php namespace Burthorpe\Runescape\Skills;
 
-class Crafting extends Skill {
+class Hunter extends Skill {
 
     /*
      * Jagex skill ID
      *
      * @var integer
      */
-    protected $id = 13;
+    protected $id = 22;
 
     /*
      * Skill is available to members only

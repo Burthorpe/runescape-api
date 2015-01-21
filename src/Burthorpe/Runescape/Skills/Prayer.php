@@ -1,13 +1,13 @@
-<?php namespace Burthorpe\RunescapeApi\Skills;
+<?php namespace Burthorpe\Runescape\Skills;
 
-class Defence extends Skill {
+class Prayer extends Skill {
 
     /*
-     * Jagex skill ID
+     * Jagex Skill ID
      *
      * @var integer
      */
-    protected $id = 2;
+    protected $id = 6;
 
     /*
      * Skill affects combat level

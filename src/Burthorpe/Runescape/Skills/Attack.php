@@ -1,14 +1,13 @@
-<?php namespace Burthorpe\RunescapeApi\Skills;
+<?php namespace Burthorpe\Runescape\Skills;
 
-class Magic extends Skill {
+class Attack extends Skill {
 
     /*
      * Jagex skill ID
      *
      * @var integer
      */
-    protected $id = 7;
-
+    protected $id = 1;
 
     /*
      * Skill affects combat level
