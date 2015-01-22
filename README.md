@@ -1,6 +1,6 @@
 # Runescape API
 
-[![Build Status](https://travis-ci.org/Burthorpe/runescape-api.svg?branch=master)](https://travis-ci.org/Burthorpe/runescape-api)
+[![Build Status](https://travis-ci.org/Burthorpe/runescape-api.svg?branch=master)](https://travis-ci.org/Burthorpe/runescape-api) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Burthorpe/runescape-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Burthorpe/runescape-api/?branch=master)
 
 Provides an interface to interact with the runescape site and APIs.
 
