@@ -47,6 +47,21 @@ class Helper {
         ]);
     }
 
+    public function getOldSchoolSkills()
+    {
+        $collection = new Collection;
+
+        $this->collection->each(function($skill) use ($collection)
+        {
+            if ($skill->isOldSchool())
+            {
+                $collection->put($skill->getName(), $skill);
+            }
+        });
+
+        return $collection;
+    }
+
     /*
      * Magic accessor to collection keys
      *

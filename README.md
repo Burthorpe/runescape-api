@@ -21,7 +21,7 @@ Update your packages with `composer update` or install with `composer install`.
 Once Composer has installed or updated your packages you need to register the package with Laravel. Open up `app/config/app.php` and find the providers key, add:
 
 ```php
-'Burthorpe\RunescapeApi\Integrations\Laravel\RunescapeApiServiceProvider',
+'Burthorpe\Runescape\Integrations\Laravel\BurthorpeRunescapeServiceProvider',
 ```
 
 ## Copyright & License
