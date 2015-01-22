@@ -6,19 +6,17 @@ Provides an interface to interact with the runescape site and APIs.
 
 ## Installation
 
-Add `burthorpe/runescape-api` as a requirement to your composer.json:
-
-```javascript
-{
-    "require": {
-        "burthorpe/runescape-api": "dev-master"
-    }
-}
+```sh
+composer require burthorpe/runescape-api
 ```
 
-Update your packages with `composer update` or install with `composer install`.
+## Integrations
 
-Once Composer has installed or updated your packages you need to register the package with Laravel. Open up `app/config/app.php` and find the providers key, add:
+Currently only Laravel is supported for integrations, but you should be able to use this with any framework or codebase
+ 
+ #### Laravel
+ 
+ Add the following to your service providers if your `config/app.php`
 
 ```php
 'Burthorpe\Runescape\Integrations\Laravel\BurthorpeRunescapeServiceProvider',
