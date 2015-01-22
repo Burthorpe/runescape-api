@@ -10,6 +10,13 @@ class Slayer extends Skill {
     protected $id = 19;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'slayer';
+
+    /*
      * Skill is available to members only
      *
      * @var bool

@@ -10,6 +10,20 @@ interface SkillInterface {
     public function getId();
 
     /*
+     * Skill name
+     *
+     * @return string
+     */
+    public function getName();
+
+    /*
+     * Old school skill name
+     *
+     * @return string
+     */
+    public function getOldSchoolName();
+
+    /*
      * Maximum possible experience
      *
      * @return integer

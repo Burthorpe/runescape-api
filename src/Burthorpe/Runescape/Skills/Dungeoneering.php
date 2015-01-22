@@ -10,6 +10,13 @@ class Dungeoneering extends Skill {
     protected $id = 25;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'dungeoneering';
+
+    /*
      * Maximum possible level
      *
      * @var integer
@@ -21,6 +28,6 @@ class Dungeoneering extends Skill {
      *
      * @var bool
      */
-    protected $old_school = true;
+    protected $old_school = false;
 
 }

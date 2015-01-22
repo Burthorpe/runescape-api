@@ -10,6 +10,20 @@ class Constitution extends Skill {
     protected $id = 4;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'constitution';
+
+    /*
+     * Old school skill name
+     *
+     * @var string
+     */
+    protected $old_school_name = 'hitpoints';
+
+    /*
      * Skill affects combat level
      *
      * @var bool

@@ -10,6 +10,13 @@ class Summoning extends Skill {
     protected $id = 24;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'summoning';
+
+    /*
      * Skill affects your combat level
      *
      * @var bool

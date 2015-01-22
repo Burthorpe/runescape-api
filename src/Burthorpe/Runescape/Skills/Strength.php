@@ -10,6 +10,13 @@ class Strength extends Skill {
     protected $id = 3;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'strength';
+
+    /*
      * Skill affects combat level
      *
      * @var bool

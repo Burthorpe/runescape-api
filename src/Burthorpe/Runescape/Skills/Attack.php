@@ -10,6 +10,13 @@ class Attack extends Skill {
     protected $id = 1;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'attack';
+
+    /*
      * Skill affects combat level
      *
      * @var bool

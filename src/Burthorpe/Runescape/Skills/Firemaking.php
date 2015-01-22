@@ -9,4 +9,11 @@ class Firemaking extends Skill {
      */
     protected $id = 12;
 
+    /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'firemaking';
+
 }

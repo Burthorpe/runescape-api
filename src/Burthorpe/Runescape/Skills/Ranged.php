@@ -10,6 +10,13 @@ class Ranged extends Skill {
     protected $id = 5;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'ranged';
+
+    /*
      * Skill affects combat level
      *
      * @var bool

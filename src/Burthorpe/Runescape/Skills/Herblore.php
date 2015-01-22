@@ -10,6 +10,13 @@ class Herblore extends Skill {
     protected $id = 16;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'herblore';
+
+    /*
      * Skill is available to members only
      *
      * @var bool

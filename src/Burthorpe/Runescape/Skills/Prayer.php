@@ -10,6 +10,13 @@ class Prayer extends Skill {
     protected $id = 6;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'prayer';
+
+    /*
      * Skill affects combat level
      *
      * @var bool

@@ -10,6 +10,13 @@ class Fletching extends Skill {
     protected $id = 10;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'fletching';
+
+    /*
      * Skill is available to members only
      *
      * @var bool

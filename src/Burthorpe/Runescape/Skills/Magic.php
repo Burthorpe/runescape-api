@@ -9,6 +9,13 @@ class Magic extends Skill {
      */
     protected $id = 7;
 
+    /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'magic';
+
 
     /*
      * Skill affects combat level

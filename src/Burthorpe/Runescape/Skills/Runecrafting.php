@@ -9,4 +9,11 @@ class Runecrafting extends Skill {
      */
     protected $id = 21;
 
+    /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'runecrafting';
+
 }

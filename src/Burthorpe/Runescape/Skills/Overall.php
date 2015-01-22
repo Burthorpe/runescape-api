@@ -10,6 +10,13 @@ class Overall extends Skill {
     protected $id = 0;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'overall';
+
+    /*
      * Maximum possible experience
      *
      * @var integer

@@ -10,6 +10,13 @@ class Crafting extends Skill {
     protected $id = 13;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name = 'crafting';
+
+    /*
      * Skill is available to members only
      *
      * @var bool

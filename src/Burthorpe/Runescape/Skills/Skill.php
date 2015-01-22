@@ -10,6 +10,20 @@ abstract class Skill implements SkillInterface {
     protected $id;
 
     /*
+     * Skill name
+     *
+     * @var string
+     */
+    protected $name;
+
+    /*
+     * Old school skill name
+     *
+     * @var string
+     */
+    protected $old_school_name;
+
+    /*
      * Maximum possible experience;
      *
      * @var integer
@@ -52,6 +66,31 @@ abstract class Skill implements SkillInterface {
     public function getId()
     {
         return $this->id;
+    }
+
+    /*
+     * Gets the skill name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /*
+     * Gets the old school skill name
+     *
+     * @return string
+     */
+    public function getOldSchoolName()
+    {
+        if ($this->old_school_name)
+        {
+            return $this->old_school_name;
+        }
+
+        return $this->getName();
     }
 
     /*
