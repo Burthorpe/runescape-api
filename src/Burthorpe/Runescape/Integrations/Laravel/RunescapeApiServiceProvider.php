@@ -20,17 +20,17 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->app['burthorpe.runescape.api'] = $this->app->share(function($app)
+        $this->app['burthorpe.runescape.api'] = $this->app->share(function()
         {
             return new API;
         });
 
-        $this->app['burthorpe.runescape.eoc'] = $this->app->share(function($app)
+        $this->app['burthorpe.runescape.eoc'] = $this->app->share(function()
         {
             return new EvolutionOfCombat;
         });
 
-        $this->app['burthorpe.runescape.os'] = $this->app->share(function($app)
+        $this->app['burthorpe.runescape.os'] = $this->app->share(function()
         {
             return new OldSchool;
         });

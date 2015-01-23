@@ -2,6 +2,9 @@
 
 use GuzzleHttp\Client as Guzzle;
 
+/**
+ * @method \GuzzleHttp\Message\ResponseInterface get()
+ */
 class API {
 
     /*
