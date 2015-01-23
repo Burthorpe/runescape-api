@@ -42,7 +42,7 @@ class API {
      */
     public function validateDisplayName($rsn)
     {
-        return preg_match('/^[a-z0-9\-_ ]{1,12}$/i', $rsn);
+        return (bool) preg_match('/^[a-z0-9\-_ ]{1,12}$/i', $rsn);
     }
 
     /*
@@ -68,7 +68,7 @@ class API {
                 $multiplier = 1;
         }
 
-        return round(floatval($number) * $multiplier, 1);
+        return (int) intval($number) * $multiplier;
     }
 
     /*
