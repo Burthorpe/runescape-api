@@ -24,8 +24,6 @@ class Skills {
                 'maximum_level' => 2595,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'overall',
             ],
             'attack' => [
                 'id' => 1,
@@ -34,8 +32,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'attack',
             ],
             'strength' => [
                 'id' => 2,
@@ -44,8 +40,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'strength',
             ],
             'defence' => [
                 'id' => 3,
@@ -54,8 +48,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'defence',
             ],
             'constitution' => [
                 'id' => 4,
@@ -64,8 +56,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'hitpoints',
             ],
             'ranged' => [
                 'id' => 5,
@@ -73,8 +63,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
-                'old_school' => true,
-                'old_school_name' => 'ranged',
             ],
             'prayer' => [
                 'id' => 6,
@@ -82,8 +70,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-                'old_school' => true,
-                'old_school_name' => 'prayer',
             ],
             'magic' => [
                 'id' => 7,
@@ -91,8 +77,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-                'old_school' => true,
-                'old_school_name' => 'magic',
             ],
             'cooking' => [
                 'id' => 8,
@@ -101,8 +85,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'cooking',
             ],
             'woodcutting' => [
                 'id' => 9,
@@ -111,8 +93,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'woodcutting',
             ],
             'fletching' => [
                 'id' => 10,
@@ -121,8 +101,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'fletching',
             ],
             'fishing' => [
                 'id' => 11,
@@ -131,8 +109,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'fishing',
             ],
             'firemaking' => [
                 'id' => 12,
@@ -141,8 +117,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'firemaking',
             ],
             'crafting' => [
                 'id' => 13,
@@ -151,8 +125,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'crafting',
             ],
             'smithing' => [
                 'id' => 14,
@@ -161,8 +133,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'smithing',
             ],
             'mining' => [
                 'id' => 15,
@@ -171,8 +141,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-                'old_school' => true,
-                'old_school_name' => 'mining',
             ],
             'herblore' => [
                 'id' => 16,
@@ -181,8 +149,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'herblore',
             ],
             'agility' => [
                 'id' => 17,
@@ -191,8 +157,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'agility',
             ],
             'thieving' => [
                 'id' => 18,
@@ -201,8 +165,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'thieving',
             ],
             'slayer' => [
                 'id' => 19,
@@ -210,8 +172,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'slayer',
             ],
             'farming' => [
                 'id' => 20,
@@ -220,8 +180,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'farming',
             ],
             'runecrafting' => [
                 'id' => 21,
@@ -229,8 +187,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-                'old_school' => true,
-                'old_school_name' => 'runecrafting',
             ],
             'hunter' => [
                 'id' => 22,
@@ -239,8 +195,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'hunter',
             ],
             'construction' => [
                 'id' => 23,
@@ -249,8 +203,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => true,
-                'old_school_name' => 'construction',
             ],
             'summoning' => [
                 'id' => 24,
@@ -259,8 +211,6 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => false,
-                'old_school_name' => null,
             ],
             'dungeoneering' => [
                 'id' => 25,
@@ -268,8 +218,6 @@ class Skills {
                 'maximum_xp' => 200000000,
                 'maximum_level' => 120,
                 'members_only' => false,
-                'old_school' => false,
-                'old_school_name' => null,
             ],
             'divination' => [
                 'id' => 26,
@@ -278,25 +226,8 @@ class Skills {
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-                'old_school' => false,
-                'old_school_name' => null,
             ],
         ]);
-    }
-
-    public function getOldSchoolSkills()
-    {
-        $collection = new Collection;
-
-        $this->collection->each(function($skill) use ($collection)
-        {
-            if ($skill->isOldSchool())
-            {
-                $collection->put($skill->getName(), $skill);
-            }
-        });
-
-        return $collection;
     }
 
     /*
