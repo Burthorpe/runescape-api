@@ -53,7 +53,7 @@ class API {
      */
     public function expandNumber($number)
     {
-        switch(substr($number, -1))
+        switch(strtoupper(substr($number, -1)))
         {
             case 'B':
                 $multiplier = 1000000000;
