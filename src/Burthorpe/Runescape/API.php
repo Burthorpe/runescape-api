@@ -1,6 +1,5 @@
 <?php namespace Burthorpe\Runescape;
 
-use Burthorpe\Runescape\Skills\Helper as SkillsHelper;
 use GuzzleHttp\Client as Guzzle;
 
 class API {
@@ -32,7 +31,7 @@ class API {
             ]
         ]);
 
-        $this->skills = new SkillsHelper;
+        $this->skills = new Skills;
     }
 
     /*

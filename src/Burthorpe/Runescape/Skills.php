@@ -1,4 +1,4 @@
-<?php namespace Burthorpe\Runescape\Skills;
+<?php namespace Burthorpe\Runescape;
 
 use Illuminate\Support\Collection;
 
