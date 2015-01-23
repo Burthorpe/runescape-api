@@ -14,7 +14,7 @@ composer require burthorpe/runescape-api
 
 Currently only Laravel is supported for integrations, but you should be able to use this with any framework or codebase
  
- #### Laravel
+### Laravel
  
  Add the following to your service providers if your `config/app.php`
 
