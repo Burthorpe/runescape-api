@@ -232,8 +232,6 @@ class Skills {
 
     /*
      * Magic accessor to collection keys
-     *
-     * @return \Burthorpe\Runescape\Skills\SkillInterface
      */
     public function __get($key)
     {
