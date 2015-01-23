@@ -231,6 +231,28 @@ class Skills {
     }
 
     /*
+     * Gets a skill by the Jagex ID
+     *
+     * @param integer $id
+     * @return \Illuminate\Support\Collection
+     */
+    public function getById($id)
+    {
+        return $this->collection->where('id', $id);
+    }
+
+    /*
+     * Get a skill by the name
+     *
+     * @param string $name
+     * @return \Illuminate\Support\Collection
+     */
+    public function getByName($name)
+    {
+        return $this->collection->where('name', $name);
+    }
+
+    /*
      * Magic accessor to collection keys
      */
     public function __get($key)
