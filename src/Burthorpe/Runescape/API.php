@@ -14,7 +14,7 @@ class API {
     /*
      * Skills helpers class
      *
-     * @var \Burthorpe\Runescape\Skills\Helper
+     * @var \Burthorpe\Runescape\Skills
      */
     protected $skills;
 
