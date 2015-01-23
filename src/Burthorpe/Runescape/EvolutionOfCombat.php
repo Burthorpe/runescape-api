@@ -82,16 +82,19 @@ class EvolutionOfCombat {
      *
      * @param integer $attack
      * @param integer $strength
-     * @param integer $defence
-     * @param integer $ranged
      * @param integer $magic
+     * @param integer $ranged
+     * @param integer $defence
+     * @param integer $constitution
+     * @param integer $prayer
+     * @param integer $summoning
      * @return integer
      */
-    public function calculateCombatLevel($attack, $strength, $defence, $ranged, $magic)
+    public function calculateCombatLevel($attack, $strength, $magic, $ranged, $defence, $constitution, $prayer, $summoning)
     {
-        $highest = max([$attack, $strength, $ranged, $magic]);
+        $highest = max(($attack + $strength), (2 * $magic), (2 * $ranged));
 
-        return floor(($highest + $defence) + 2);
+        return floor(0.25 * ((1.3 * $highest) + $defence + $constitution + floor(0.5 * $prayer) + floor(0.5 * $summoning)));
     }
 
 }
