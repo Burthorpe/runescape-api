@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Collection;
 
+/**
+ * @method integer count()
+ * @method \Illuminate\Support\Collection each(\Closure $callback)
+ */
 class Skills {
 
     /*

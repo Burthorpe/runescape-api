@@ -3,7 +3,7 @@
 use GuzzleHttp\Client as Guzzle;
 
 /**
- * @method \GuzzleHttp\Message\ResponseInterface get()
+ * @method \GuzzleHttp\Message\ResponseInterface get(string $url, array $options)
  */
 class API {
 
