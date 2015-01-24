@@ -83,7 +83,7 @@ class API {
      */
     public function shortenNumber($number)
     {
-        $abbr = [9 => 'B', 6 => 'M', 3 => 'K', 0 => ''];
+        $abbr = [9 => 'B', 6 => 'M', 3 => 'K'];
 
         foreach($abbr as $exponent => $suffix)
         {
