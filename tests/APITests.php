@@ -56,6 +56,7 @@ class APITests extends PHPUnit_Framework_TestCase {
         $this->assertEquals(119, $api->xpTolevel(104273166));
         $this->assertEquals(126, $api->xpToLevel(188884740));
         $this->assertEquals(125, $api->xpToLevel(188884739));
+        $this->assertEquals(126, $api->xpTolevel(299999999));
     }
 
     public function testLevelToXp()
