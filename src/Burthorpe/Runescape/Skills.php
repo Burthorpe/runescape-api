@@ -242,7 +242,7 @@ class Skills {
      */
     public function getById($id)
     {
-        return $this->collection->where('id', $id);
+        return $this->collection->where('id', $id)->first();
     }
 
     /*
@@ -253,7 +253,7 @@ class Skills {
      */
     public function getByName($name)
     {
-        return $this->collection->where('name', $name);
+        return $this->collection->where('name', $name)->first();
     }
 
     /*
