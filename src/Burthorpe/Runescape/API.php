@@ -144,7 +144,7 @@ class API {
     /*
      * Get access to the skills helper
      *
-     * @return \Burthorpe\Runescape\Skills\Helper
+     * @return \Burthorpe\Runescape\Skills
      */
     public function getSkills()
     {
