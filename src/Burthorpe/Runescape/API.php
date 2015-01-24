@@ -30,7 +30,8 @@ class API {
             'defaults' => [
                 'headers' => [
                     'User-Agent' => 'Burthorpe Runescape API',
-                ]
+                ],
+                'exceptions' => false,
             ]
         ]);
 
