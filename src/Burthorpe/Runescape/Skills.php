@@ -37,17 +37,17 @@ class Skills {
                 'combat' => true,
                 'members_only' => false,
             ]),
-            'strength' => new Collection([
+            'defence' => new Collection([
                 'id' => 2,
-                'name' => 'strength',
+                'name' => 'defence',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
             ]),
-            'defence' => new Collection([
+            'strength' => new Collection([
                 'id' => 3,
-                'name' => 'defence',
+                'name' => 'strength',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
