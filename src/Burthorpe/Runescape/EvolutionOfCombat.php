@@ -62,7 +62,7 @@ class EvolutionOfCombat {
             array_slice(
                 explode("\n", $response->getBody()),
                 0,
-                $this->api->getSkills()->count() - 1
+                $this->api->getSkills()->count()
             )
         );
 
