@@ -4,6 +4,13 @@ use Burthorpe\Runescape\EvolutionOfCombat as EOC;
 
 class EvolutionOfCombatTests extends PHPUnit_Framework_TestCase {
 
+    public function testStats()
+    {
+        $eoc = new EOC;
+
+        $this->assertTrue($eoc->stats('iWader') instanceof \Illuminate\Support\Collection);
+    }
+
     public function testCalculateCombatLevel()
     {
         $eoc = new EOC;

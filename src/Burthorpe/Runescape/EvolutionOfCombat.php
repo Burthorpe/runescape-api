@@ -71,7 +71,7 @@ class EvolutionOfCombat {
         $this->api->getSkills()
                   ->each(function($skill) use ($collection, $raw)
         {
-            $collection->put($skill->name, new Collection($raw[0]));
+            $collection->put($skill->get('name'), new Collection($raw[0]));
         });
 
         return $collection;

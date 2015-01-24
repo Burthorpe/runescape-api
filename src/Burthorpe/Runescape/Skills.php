@@ -21,216 +21,216 @@ class Skills {
     public function __construct()
     {
         $this->collection = new Collection([
-            'overall' => [
+            'overall' => new Collection([
                 'id' => 0,
                 'name' => 'overall',
                 'maximum_xp' => 5200000000,
                 'maximum_level' => 2595,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'attack' => [
+            ]),
+            'attack' => new Collection([
                 'id' => 1,
                 'name' => 'attack',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-            ],
-            'strength' => [
+            ]),
+            'strength' => new Collection([
                 'id' => 2,
                 'name' => 'strength',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-            ],
-            'defence' => [
+            ]),
+            'defence' => new Collection([
                 'id' => 3,
                 'name' => 'defence',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-            ],
-            'constitution' => [
+            ]),
+            'constitution' => new Collection([
                 'id' => 4,
                 'name' => 'constitution',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
                 'members_only' => false,
-            ],
-            'ranged' => [
+            ]),
+            'ranged' => new Collection([
                 'id' => 5,
                 'name' => 'ranged',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => true,
-            ],
-            'prayer' => [
+            ]),
+            'prayer' => new Collection([
                 'id' => 6,
                 'name' => 'prayer',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-            ],
-            'magic' => [
+            ]),
+            'magic' => new Collection([
                 'id' => 7,
                 'name' => 'magic',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-            ],
-            'cooking' => [
+            ]),
+            'cooking' => new Collection([
                 'id' => 8,
                 'name' => 'cooking',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'woodcutting' => [
+            ]),
+            'woodcutting' => new Collection([
                 'id' => 9,
                 'name' => 'woodcutting',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'fletching' => [
+            ]),
+            'fletching' => new Collection([
                 'id' => 10,
                 'name' => 'fletching',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'fishing' => [
+            ]),
+            'fishing' => new Collection([
                 'id' => 11,
                 'name' => 'fishing',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'firemaking' => [
+            ]),
+            'firemaking' => new Collection([
                 'id' => 12,
                 'name' => 'firemaking',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'crafting' => [
+            ]),
+            'crafting' => new Collection([
                 'id' => 13,
                 'name' => 'crafting',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'smithing' => [
+            ]),
+            'smithing' => new Collection([
                 'id' => 14,
                 'name' => 'smithing',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'mining' => [
+            ]),
+            'mining' => new Collection([
                 'id' => 15,
                 'name' => 'mining',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => false,
-            ],
-            'herblore' => [
+            ]),
+            'herblore' => new Collection([
                 'id' => 16,
                 'name' => 'herblore',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'agility' => [
+            ]),
+            'agility' => new Collection([
                 'id' => 17,
                 'name' => 'agility',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'thieving' => [
+            ]),
+            'thieving' => new Collection([
                 'id' => 18,
                 'name' => 'thieving',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'slayer' => [
+            ]),
+            'slayer' => new Collection([
                 'id' => 19,
                 'name' => 'slayer',
                 'maximum_xp' => 200000000,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'farming' => [
+            ]),
+            'farming' => new Collection([
                 'id' => 20,
                 'name' => 'farming',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'runecrafting' => [
+            ]),
+            'runecrafting' => new Collection([
                 'id' => 21,
                 'name' => 'runecrafting',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
-            ],
-            'hunter' => [
+            ]),
+            'hunter' => new Collection([
                 'id' => 22,
                 'name' => 'hunter',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'construction' => [
+            ]),
+            'construction' => new Collection([
                 'id' => 23,
                 'name' => 'construction',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'summoning' => [
+            ]),
+            'summoning' => new Collection([
                 'id' => 24,
                 'name' => 'summoning',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
-            'dungeoneering' => [
+            ]),
+            'dungeoneering' => new Collection([
                 'id' => 25,
                 'name' => 'dungeoneering',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 120,
                 'members_only' => false,
-            ],
-            'divination' => [
+            ]),
+            'divination' => new Collection([
                 'id' => 26,
                 'name' => 'divination',
                 'maximum_xp' => 200000000,
                 'maximum_level' => 99,
                 'combat' => false,
                 'members_only' => true,
-            ],
+            ]),
         ]);
     }
 
