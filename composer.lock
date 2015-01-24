@@ -193,12 +193,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "a6dfe3ed43cba212a76773bc5329646042085459"
+                "reference": "0b13b4f0d595c4e886ae8eecdfe27e049ba38375"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/a6dfe3ed43cba212a76773bc5329646042085459",
-                "reference": "a6dfe3ed43cba212a76773bc5329646042085459",
+                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/0b13b4f0d595c4e886ae8eecdfe27e049ba38375",
+                "reference": "0b13b4f0d595c4e886ae8eecdfe27e049ba38375",
                 "shasum": ""
             },
             "require": {
@@ -236,7 +236,7 @@
                 }
             ],
             "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-01-05 18:46:17"
+            "time": "2015-01-20 22:24:03"
         },
         {
             "name": "guzzlehttp/streams",
@@ -244,12 +244,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "1fa6dfa8bca38fc32b189e91273b6a74c47df1ae"
+                "reference": "d1f8a6c55f0f753cfd6f6755856473eb02cedb19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/1fa6dfa8bca38fc32b189e91273b6a74c47df1ae",
-                "reference": "1fa6dfa8bca38fc32b189e91273b6a74c47df1ae",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/d1f8a6c55f0f753cfd6f6755856473eb02cedb19",
+                "reference": "d1f8a6c55f0f753cfd6f6755856473eb02cedb19",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +286,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2015-01-11 22:40:57"
+            "time": "2015-01-22 00:01:34"
         },
         {
             "name": "illuminate/contracts",
@@ -294,12 +294,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "4eb378e1244234d60b596069200d08fa36a6e35c"
+                "reference": "e109a90983745e14064799ef102f9c0a78f8d586"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/4eb378e1244234d60b596069200d08fa36a6e35c",
-                "reference": "4eb378e1244234d60b596069200d08fa36a6e35c",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e109a90983745e14064799ef102f9c0a78f8d586",
+                "reference": "e109a90983745e14064799ef102f9c0a78f8d586",
                 "shasum": ""
             },
             "require": {
@@ -327,7 +327,7 @@
                 }
             ],
             "description": "The Illuminate Contracts package.",
-            "time": "2015-01-12 18:55:14"
+            "time": "2015-01-22 21:27:46"
         },
         {
             "name": "illuminate/support",
@@ -335,12 +335,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "04ae516ebd6b1816d4f2d98acd045fc85d63e925"
+                "reference": "1e7a0b91842a6d593724dd280a18224fefff4d92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/04ae516ebd6b1816d4f2d98acd045fc85d63e925",
-                "reference": "04ae516ebd6b1816d4f2d98acd045fc85d63e925",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/1e7a0b91842a6d593724dd280a18224fefff4d92",
+                "reference": "1e7a0b91842a6d593724dd280a18224fefff4d92",
                 "shasum": ""
             },
             "require": {
@@ -378,7 +378,7 @@
                 }
             ],
             "description": "The Illuminate Support package.",
-            "time": "2015-01-12 16:27:36"
+            "time": "2015-01-23 02:33:34"
         },
         {
             "name": "react/promise",
