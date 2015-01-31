@@ -55,7 +55,7 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
 
     public function registerCustomValidators()
     {
-        $this->app->make('validator')->extend('runescape_display_name', '\Burthorpe\Runescape\Integrations\Laravel\Validator@validateDisplayName');
+        $this->app->make('validator')->extend('runescape_display_name', '\Burthorpe\Runescape\Integrations\Laravel\Validator@validateDisplayName', ':attribute must be a valid Runescape Display Name (Maximum of 12 characters and only contain letters, numbers, dashes, underscores and spaces)');
     }
 
 }
