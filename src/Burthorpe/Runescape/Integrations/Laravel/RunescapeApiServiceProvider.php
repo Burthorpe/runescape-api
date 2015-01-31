@@ -29,6 +29,8 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
         {
             return new EvolutionOfCombat;
         });
+
+        $this->registerCustomValidators();
     }
 
     /**
@@ -49,6 +51,11 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
     public function provides()
     {
         return ['burthorpe.runescape.api', 'burthorpe.runescape.eoc'];
+    }
+
+    public function registerCustomValidators()
+    {
+        $this->app->make('validator')->extend('runescape_display_name', '\Burthorpe\Runescape\Integrations\Laravel\Validator@validateDisplayName');
     }
 
 }
