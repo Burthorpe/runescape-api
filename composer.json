@@ -20,7 +20,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Burthorpe\\Runescape\\": "src/Burthorpe/Runescape"
+            "Burthorpe\\Runescape\\": "src/Burthorpe/Runescape",
+            "Burthorpe\\Runescape\\Integrations\\Laravel\\": "src/Burthorpe/Runescape/Integrations/Laravel"
         }
     },
     "minimum-stability": "dev"
