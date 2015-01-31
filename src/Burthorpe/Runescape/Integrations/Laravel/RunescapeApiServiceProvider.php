@@ -29,11 +29,6 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
         {
             return new EvolutionOfCombat;
         });
-
-        $this->app['burthorpe.runescape.os'] = $this->app->share(function()
-        {
-            return new OldSchool;
-        });
     }
 
     /**
@@ -53,7 +48,7 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return ['burthorpe.runescape.api', 'burthorpe.runescape.eoc', 'burthorpe.runescape.os'];
+        return ['burthorpe.runescape.api', 'burthorpe.runescape.eoc'];
     }
 
 }
