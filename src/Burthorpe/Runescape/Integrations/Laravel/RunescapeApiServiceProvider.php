@@ -1,7 +1,6 @@
 <?php namespace Burthorpe\Runescape\Integrations\Laravel;
 
 use Burthorpe\Runescape\EvolutionOfCombat;
-use Burthorpe\Runescape\OldSchool;
 use Illuminate\Support\ServiceProvider;
 
 class BurthorpeRunescapeServiceProvider extends ServiceProvider {
