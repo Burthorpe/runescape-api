@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "05f374432633d57346f2836f1d032be7",
+    "hash": "be42db32bb833631040f48d08a280f36",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -131,16 +131,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "5.1.0",
+            "version": "5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f1085bb4e023766a66b7b051914ec73bdf7202b5"
+                "reference": "475b29ccd411f2fa8a408e64576418728c032cfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f1085bb4e023766a66b7b051914ec73bdf7202b5",
-                "reference": "f1085bb4e023766a66b7b051914ec73bdf7202b5",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/475b29ccd411f2fa8a408e64576418728c032cfa",
+                "reference": "475b29ccd411f2fa8a408e64576418728c032cfa",
                 "shasum": ""
             },
             "require": {
@@ -185,7 +185,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-12-19 20:27:15"
+            "time": "2015-01-28 01:03:29"
         },
         {
             "name": "guzzlehttp/ringphp",
@@ -294,12 +294,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "e109a90983745e14064799ef102f9c0a78f8d586"
+                "reference": "e9d98d820300288ac902bd3f6b35a9f5cb7fe2cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e109a90983745e14064799ef102f9c0a78f8d586",
-                "reference": "e109a90983745e14064799ef102f9c0a78f8d586",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e9d98d820300288ac902bd3f6b35a9f5cb7fe2cb",
+                "reference": "e9d98d820300288ac902bd3f6b35a9f5cb7fe2cb",
                 "shasum": ""
             },
             "require": {
@@ -308,7 +308,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -327,7 +327,7 @@
                 }
             ],
             "description": "The Illuminate Contracts package.",
-            "time": "2015-01-22 21:27:46"
+            "time": "2015-01-30 19:09:31"
         },
         {
             "name": "illuminate/support",
@@ -335,28 +335,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "1e7a0b91842a6d593724dd280a18224fefff4d92"
+                "reference": "f5125c84a008afede4c76f69fbc39a6e8d897901"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/1e7a0b91842a6d593724dd280a18224fefff4d92",
-                "reference": "1e7a0b91842a6d593724dd280a18224fefff4d92",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/f5125c84a008afede4c76f69fbc39a6e8d897901",
+                "reference": "f5125c84a008afede4c76f69fbc39a6e8d897901",
                 "shasum": ""
             },
             "require": {
-                "danielstjules/stringy": "~1.5",
+                "danielstjules/stringy": "~1.8",
                 "doctrine/inflector": "~1.0",
                 "ext-mbstring": "*",
-                "illuminate/contracts": "5.0.*",
+                "illuminate/contracts": "5.1.*",
                 "php": ">=5.4.0"
             },
-            "require-dev": {
-                "jeremeamia/superclosure": "~1.0.1"
+            "suggest": {
+                "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0)."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -378,7 +378,7 @@
                 }
             ],
             "description": "The Illuminate Support package.",
-            "time": "2015-01-23 02:33:34"
+            "time": "2015-01-29 21:57:23"
         },
         {
             "name": "react/promise",
