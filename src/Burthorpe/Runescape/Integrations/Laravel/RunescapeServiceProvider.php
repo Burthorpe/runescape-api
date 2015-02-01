@@ -1,7 +1,7 @@
 <?php namespace Burthorpe\Runescape\Integrations\Laravel;
 
-use Burthorpe\Runescape\EvolutionOfCombat;
 use Burthorpe\Runescape\API;
+use Burthorpe\Runescape\EvolutionOfCombat;
 use Illuminate\Support\ServiceProvider;
 
 class RunescapeServiceProvider extends ServiceProvider {
