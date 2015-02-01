@@ -1,9 +1,10 @@
 <?php namespace Burthorpe\Runescape\Integrations\Laravel;
 
 use Burthorpe\Runescape\EvolutionOfCombat;
+use Burthorpe\Runescape\API;
 use Illuminate\Support\ServiceProvider;
 
-class BurthorpeRunescapeServiceProvider extends ServiceProvider {
+class RunescapeServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -19,16 +20,6 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
      */
     public function boot()
     {
-        $this->app['burthorpe.runescape.api'] = $this->app->share(function()
-        {
-            return new API;
-        });
-
-        $this->app['burthorpe.runescape.eoc'] = $this->app->share(function()
-        {
-            return new EvolutionOfCombat;
-        });
-
         $this->registerCustomValidators();
     }
 
@@ -39,7 +30,15 @@ class BurthorpeRunescapeServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        //
+        $this->app['burthorpe.runescape.api'] = $this->app->share(function()
+        {
+            return new API;
+        });
+
+        $this->app['burthorpe.runescape.eoc'] = $this->app->share(function()
+        {
+            return new EvolutionOfCombat;
+        });
     }
 
     /**
