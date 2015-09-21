@@ -1,4 +1,4 @@
-<?php namespace Burthorpe\Runescape;
+<?php namespace Burthorpe\Runescape\RS3;
 
 use Illuminate\Support\Collection;
 

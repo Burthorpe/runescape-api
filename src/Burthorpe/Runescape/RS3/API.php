@@ -1,15 +1,16 @@
-<?php namespace Burthorpe\Runescape;
+<?php namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Runescape\Common;
 use Illuminate\Support\Collection;
 
-class EvolutionOfCombat {
+class API {
 
     /*
      * Burthorpe API instance
      *
-     * @var \Burthorpe\Runescape\API
+     * @var \Burthorpe\Runescape\Common
      */
-    protected $api;
+    protected $common;
 
     /*
      * Array of resource URLs
@@ -25,7 +26,16 @@ class EvolutionOfCombat {
      */
     public function __construct()
     {
-        $this->api = new API;
+        $this->common = new Common();
+        $this->skills = new Skills();
+    }
+
+    /**
+     * Call magic methods on \Burthorpe\Runescape\Common
+     */
+    public function __call($method, $args)
+    {
+        return call_user_func_array([$this->common, $method], $args);
     }
 
     /*
@@ -35,7 +45,7 @@ class EvolutionOfCombat {
      */
     public function stats($rsn)
     {
-        $response = $this->api->get(
+        $response = $this->common->get(
             $this->resources['hiscores'],
             ['query' => [
                     'player' => $rsn,
@@ -62,14 +72,13 @@ class EvolutionOfCombat {
             array_slice(
                 explode("\n", $response->getBody()),
                 0,
-                $this->api->getSkills()->count()
+                $this->common->getSkills()->count()
             )
         );
 
-        $collection = new Collection;
+        $collection = new Collection();
 
-        $this->api->getSkills()
-                  ->each(function($skill) use ($collection, $raw)
+        $this->skills->each(function($skill) use ($collection, $raw)
         {
             $collection->put($skill->get('name'), new Collection($raw[$skill->get('id')]));
         });

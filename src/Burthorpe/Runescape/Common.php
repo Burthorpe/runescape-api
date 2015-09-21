@@ -5,7 +5,7 @@ use GuzzleHttp\Client as Guzzle;
 /**
  * @method \GuzzleHttp\Message\ResponseInterface get(string $url, array $options)
  */
-class API {
+class Common {
 
     /*
      * Guzzle HTTP client for making requests
@@ -13,13 +13,6 @@ class API {
      * @var \GuzzleHttp\Client
      */
     protected $guzzle;
-
-    /*
-     * Skills helpers class
-     *
-     * @var \Burthorpe\Runescape\Skills
-     */
-    protected $skills;
 
     /*
      * Class constructor
@@ -34,8 +27,6 @@ class API {
                 'exceptions' => false,
             ]
         ]);
-
-        $this->skills = new Skills;
     }
 
     /*
@@ -140,16 +131,6 @@ class API {
 
         // Check if our value is above 200m, if so return 200m, otherwise our value
         return ($xp > 200000000 ? 200000000 : $xp);
-    }
-
-    /*
-     * Get access to the skills helper
-     *
-     * @return \Burthorpe\Runescape\Skills
-     */
-    public function getSkills()
-    {
-        return $this->skills;
     }
 
     /*
