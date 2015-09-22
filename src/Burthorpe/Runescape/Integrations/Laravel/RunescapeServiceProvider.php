@@ -1,7 +1,7 @@
 <?php namespace Burthorpe\Runescape\Integrations\Laravel;
 
-use Burthorpe\Runescape\API;
-use Burthorpe\Runescape\EvolutionOfCombat;
+use Burthorpe\Runescape\Common;
+use Burthorpe\Runescape\RS3\API as RS3;
 use Illuminate\Support\ServiceProvider;
 
 class RunescapeServiceProvider extends ServiceProvider {
@@ -30,14 +30,14 @@ class RunescapeServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['burthorpe.runescape.api'] = $this->app->share(function()
+        $this->app['burthorpe.runescape.common'] = $this->app->share(function()
         {
-            return new API;
+            return new Common();
         });
 
-        $this->app['burthorpe.runescape.eoc'] = $this->app->share(function()
+        $this->app['burthorpe.runescape.rs3'] = $this->app->share(function()
         {
-            return new EvolutionOfCombat;
+            return new RS3();
         });
     }
 
@@ -51,6 +51,11 @@ class RunescapeServiceProvider extends ServiceProvider {
         return ['burthorpe.runescape.api', 'burthorpe.runescape.eoc'];
     }
 
+    /**
+     * Register the runescape_display_name validation rule with Laravel's validator
+     *
+     * @return void
+     */
     public function registerCustomValidators()
     {
         $this->app->make('validator')->extend('runescape_display_name', '\Burthorpe\Runescape\Integrations\Laravel\Validator@validateDisplayName', ':attribute must be a valid Runescape Display Name (Maximum of 12 characters and only contain letters, numbers, dashes, underscores and spaces)');
