@@ -1,11 +1,13 @@
-<?php namespace Burthorpe\Runescape\Integrations\Laravel;
+<?php
+
+namespace Burthorpe\Runescape\Integrations\Laravel;
 
 use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\API as RS3;
 use Illuminate\Support\ServiceProvider;
 
-class RunescapeServiceProvider extends ServiceProvider {
-
+class RunescapeServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -30,13 +32,11 @@ class RunescapeServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['burthorpe.runescape.common'] = $this->app->share(function()
-        {
+        $this->app['burthorpe.runescape.common'] = $this->app->share(function () {
             return new Common();
         });
 
-        $this->app['burthorpe.runescape.rs3'] = $this->app->share(function()
-        {
+        $this->app['burthorpe.runescape.rs3'] = $this->app->share(function () {
             return new RS3();
         });
     }
@@ -60,5 +60,4 @@ class RunescapeServiceProvider extends ServiceProvider {
     {
         $this->app->make('validator')->extend('runescape_display_name', '\Burthorpe\Runescape\Integrations\Laravel\Validator@validateDisplayName', ':attribute must be a valid Runescape Display Name (Maximum of 12 characters and only contain letters, numbers, dashes, underscores and spaces)');
     }
-
 }

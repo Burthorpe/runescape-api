@@ -1,12 +1,14 @@
-<?php namespace Burthorpe\Runescape;
+<?php
+
+namespace Burthorpe\Runescape;
 
 use GuzzleHttp\Client as Guzzle;
 
 /**
  * @method \GuzzleHttp\Message\ResponseInterface get(string $url, array $options)
  */
-class Common {
-
+class Common
+{
     /**
      * Guzzle HTTP client for making requests
      *
@@ -25,15 +27,15 @@ class Common {
                     'User-Agent' => 'Burthorpe Runescape API',
                 ],
                 'exceptions' => false,
-            ]
+            ],
         ]);
     }
 
     /**
      * Checks if the given string is a valid display name
      *
-     * @param string $rsn
-     * @return boolean
+     * @param  string $rsn
+     * @return bool
      */
     public function validateDisplayName($rsn)
     {
@@ -43,13 +45,12 @@ class Common {
     /**
      * Expands a short-hand number to its full value
      *
-     * @param string $number
+     * @param  string $number
      * @return float
      */
     public function expandNumber($number)
     {
-        switch(strtoupper(substr($number, -1)))
-        {
+        switch (strtoupper(substr($number, -1))) {
             case 'B':
                 $multiplier = 1000000000;
                 break;
@@ -69,17 +70,15 @@ class Common {
     /**
      * Compact a number into short-hand
      *
-     * @param integer $number
+     * @param  int    $number
      * @return string
      */
     public function shortenNumber($number)
     {
         $abbr = [9 => 'B', 6 => 'M', 3 => 'K'];
 
-        foreach($abbr as $exponent => $suffix)
-        {
-            if ($number >= pow(10, $exponent))
-            {
+        foreach ($abbr as $exponent => $suffix) {
+            if ($number >= pow(10, $exponent)) {
                 return intval($number / pow(10, $exponent)) . $suffix;
             }
         }
@@ -90,20 +89,18 @@ class Common {
     /**
      * Calculate a level with the give amount of experience
      *
-     * @param integer $xp
-     * @return integer
+     * @param  int $xp
+     * @return int
      */
     public function xpTolevel($xp)
     {
         $modifier = 0;
 
-        for($i = 1; $i <= 126; $i++)
-        {
+        for ($i = 1; $i <= 126; $i++) {
             $modifier += floor($i + 300 * pow(2, ($i / 7)));
             $level = floor($modifier / 4);
 
-            if ($xp < $level)
-            {
+            if ($xp < $level) {
                 return $i;
             }
         }
@@ -115,15 +112,14 @@ class Common {
     /**
      * Calculates the minimum experience needed for the given level
      *
-     * @param integer $level
-     * @return integer
+     * @param  int $level
+     * @return int
      */
     public function levelToXp($level)
     {
         $xp = 0;
 
-        for ($i = 1; $i < $level; $i++)
-        {
+        for ($i = 1; $i < $level; $i++) {
             $xp += floor($i + 300 * pow(2, ($i / 7)));
         }
 
@@ -142,5 +138,4 @@ class Common {
     {
         return call_user_func_array([$this->guzzle, $method], $params);
     }
-
 }

@@ -1,9 +1,11 @@
-<?php namespace Burthorpe\Runescape\Integrations\Laravel;
+<?php
+
+namespace Burthorpe\Runescape\Integrations\Laravel;
 
 use Burthorpe\Runescape\RS3\API;
 
-class Validator {
-
+class Validator
+{
     /**
      * API Instance
      *
@@ -22,15 +24,14 @@ class Validator {
     /**
      * Checks if the given string is a valid runescape display name
      *
-     * @param n $attribute
-     * @param n $value
-     * @param n $params
-     * @param n $validator
-     * @return boolean
+     * @param  n    $attribute
+     * @param  n    $value
+     * @param  n    $params
+     * @param  n    $validator
+     * @return bool
      */
     public function validateDisplayName($attribute, $value, $params, $validator)
     {
         return $this->api->validateDisplayName($value);
     }
-
 }
