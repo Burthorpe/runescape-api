@@ -8,11 +8,14 @@ use Illuminate\Support\Collection;
 class API
 {
     /**
-     * Burthorpe API instance
-     *
      * @var \Burthorpe\Runescape\Common
      */
     protected $common;
+
+    /**
+     * @var \Burthorpe\Runescape\RS3\Skills
+     */
+    protected $skills;
 
     /**
      * Array of resource URLs
