@@ -1,12 +1,19 @@
 <?php
 
-use Burthorpe\Runescape\EvolutionOfCombat as EOC;
+use Burthorpe\Runescape\RS3\API;
 
-class EvolutionOfCombatTests extends PHPUnit_Framework_TestCase {
+class APITests extends PHPUnit_Framework_TestCase {
+
+    public function testGetSkills()
+    {
+        $api = new API();
+
+        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills);
+    }
 
     public function testStats()
     {
-        $eoc = new EOC;
+        $eoc = new API();
 
         $this->assertTrue($eoc->stats('iWader') instanceof \Illuminate\Support\Collection);
         $this->assertFalse($eoc->stats('1234567890123'));
@@ -14,7 +21,7 @@ class EvolutionOfCombatTests extends PHPUnit_Framework_TestCase {
 
     public function testCalculateCombatLevel()
     {
-        $eoc = new EOC;
+        $eoc = new API();
 
         $this->assertEquals(3, $eoc->calculateCombatLevel(1, 1, 1, 1, 1, 10, 1, 1));
         $this->assertEquals(138, $eoc->calculateCombatLevel(99, 99, 99, 99, 99, 99, 99, 99));

@@ -1,12 +1,12 @@
 <?php
 
-use Burthorpe\Runescape\API;
+use Burthorpe\Runescape\Common;
 
-class APITests extends PHPUnit_Framework_TestCase {
+class CommonTests extends PHPUnit_Framework_TestCase {
 
     public function testValidateDisplayName()
     {
-        $api = new API;
+        $api = new Common();
 
         $this->assertTrue($api->validateDisplayName('1'));
         $this->assertTrue($api->validateDisplayName('123456789012'));
@@ -18,7 +18,7 @@ class APITests extends PHPUnit_Framework_TestCase {
 
     public function testExpandNumber()
     {
-        $api = new API;
+        $api = new Common();
 
         $this->assertEquals(1, $api->expandNumber('1'));
         $this->assertEquals(100, $api->expandNumber('100'));
@@ -32,7 +32,7 @@ class APITests extends PHPUnit_Framework_TestCase {
 
     public function testShortenNumber()
     {
-        $api = new API;
+        $api = new Common();
 
         $this->assertEquals(1, $api->shortenNumber(1));
         $this->assertEquals(100, $api->shortenNumber(100));
@@ -46,7 +46,7 @@ class APITests extends PHPUnit_Framework_TestCase {
 
     public function testXpToLevel()
     {
-        $api = new API;
+        $api = new Common();
 
         $this->assertEquals(1, $api->xpTolevel(1));
         $this->assertEquals(126, $api->xpTolevel(200000000));
@@ -61,20 +61,13 @@ class APITests extends PHPUnit_Framework_TestCase {
 
     public function testLevelToXp()
     {
-        $api = new API;
+        $api = new Common();
 
         $this->assertEquals(0, $api->levelToXp(1));
         $this->assertEquals(188884740, $api->levelToXp(126));
         $this->assertEquals(13034431, $api->levelToXp(99));
         $this->assertEquals(104273167, $api->levelToXp(120));
         $this->assertEquals(200000000, $api->levelToXp(127));
-    }
-
-    public function testGetSkills()
-    {
-        $api = new API;
-
-        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\Skills);
     }
 
 }

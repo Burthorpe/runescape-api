@@ -72,7 +72,7 @@ class API {
             array_slice(
                 explode("\n", $response->getBody()),
                 0,
-                $this->common->getSkills()->count()
+                $this->getSkills()->count()
             )
         );
 
@@ -84,6 +84,16 @@ class API {
         });
 
         return $collection;
+    }
+
+    /*
+     * Get access to the skills helper
+     *
+     * @return \Burthorpe\Runescape\RS3\Skills
+     */
+    public function getSkills()
+    {
+        return $this->skills;
     }
 
     /*
