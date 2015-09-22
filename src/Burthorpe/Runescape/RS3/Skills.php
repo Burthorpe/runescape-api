@@ -8,14 +8,14 @@ use Illuminate\Support\Collection;
  */
 class Skills {
 
-    /*
+    /**
      * Collection of the Skill classes
      *
      * @var \Illuminate\Support\Collection
      */
     protected $collection;
 
-    /*
+    /**
      * Class constructor
      */
     public function __construct()
@@ -234,7 +234,7 @@ class Skills {
         ]);
     }
 
-    /*
+    /**
      * Gets a skill by the Jagex ID
      *
      * @param integer $id
@@ -245,7 +245,7 @@ class Skills {
         return $this->collection->where('id', $id)->first();
     }
 
-    /*
+    /**
      * Get a skill by the name
      *
      * @param string $name
@@ -256,7 +256,7 @@ class Skills {
         return $this->collection->where('name', $name)->first();
     }
 
-    /*
+    /**
      * Magic accessor to collection keys
      */
     public function __get($key)
@@ -264,7 +264,7 @@ class Skills {
         return $this->collection->get($key);
     }
 
-    /*
+    /**
      * Magic access to collection methods
      */
     public function __call($method, $parameters)

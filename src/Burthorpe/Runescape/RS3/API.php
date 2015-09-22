@@ -5,14 +5,14 @@ use Illuminate\Support\Collection;
 
 class API {
 
-    /*
+    /**
      * Burthorpe API instance
      *
      * @var \Burthorpe\Runescape\Common
      */
     protected $common;
 
-    /*
+    /**
      * Array of resource URLs
      *
      * @var array
@@ -21,7 +21,7 @@ class API {
         'hiscores' => 'http://hiscore.runescape.com/index_lite.ws',
     ];
 
-    /*
+    /**
      * Class constructor
      */
     public function __construct()
@@ -38,7 +38,7 @@ class API {
         return call_user_func_array([$this->common, $method], $args);
     }
 
-    /*
+    /**
      * Get a players statistics from the hiscores API feed
      *
      * @return mixed
@@ -86,7 +86,7 @@ class API {
         return $collection;
     }
 
-    /*
+    /**
      * Get access to the skills helper
      *
      * @return \Burthorpe\Runescape\RS3\Skills
@@ -96,7 +96,7 @@ class API {
         return $this->skills;
     }
 
-    /*
+    /**
      * Calculates a players combat level
      *
      * @param integer $attack

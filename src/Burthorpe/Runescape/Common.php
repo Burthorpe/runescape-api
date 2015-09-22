@@ -7,14 +7,14 @@ use GuzzleHttp\Client as Guzzle;
  */
 class Common {
 
-    /*
+    /**
      * Guzzle HTTP client for making requests
      *
      * @var \GuzzleHttp\Client
      */
     protected $guzzle;
 
-    /*
+    /**
      * Class constructor
      */
     public function __construct()
@@ -29,7 +29,7 @@ class Common {
         ]);
     }
 
-    /*
+    /**
      * Checks if the given string is a valid display name
      *
      * @param string $rsn
@@ -40,7 +40,7 @@ class Common {
         return (bool) preg_match('/^[a-z0-9\-_ ]{1,12}$/i', $rsn);
     }
 
-    /*
+    /**
      * Expands a short-hand number to its full value
      *
      * @param string $number
@@ -66,7 +66,7 @@ class Common {
         return (int) intval($number) * $multiplier;
     }
 
-    /*
+    /**
      * Compact a number into short-hand
      *
      * @param integer $number
@@ -87,7 +87,7 @@ class Common {
         return $number;
     }
 
-    /*
+    /**
      * Calculate a level with the give amount of experience
      *
      * @param integer $xp
@@ -112,7 +112,7 @@ class Common {
         return 126;
     }
 
-    /*
+    /**
      * Calculates the minimum experience needed for the given level
      *
      * @param integer $level
@@ -133,7 +133,7 @@ class Common {
         return ($xp > 200000000 ? 200000000 : $xp);
     }
 
-    /*
+    /**
      * Call magic methods on guzzle instance
      *
      * @return mixed
