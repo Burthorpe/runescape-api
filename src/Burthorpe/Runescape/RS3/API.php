@@ -1,10 +1,12 @@
-<?php namespace Burthorpe\Runescape\RS3;
+<?php
+
+namespace Burthorpe\Runescape\RS3;
 
 use Burthorpe\Runescape\Common;
 use Illuminate\Support\Collection;
 
-class API {
-
+class API
+{
     /**
      * Burthorpe API instance
      *
@@ -49,24 +51,22 @@ class API {
             $this->resources['hiscores'],
             ['query' => [
                     'player' => $rsn,
-                ]
+                ],
             ]
         );
 
-        if ($response->getStatusCode() !== 200)
-        {
+        if ($response->getStatusCode() !== 200) {
             return false;
         }
 
         $raw = array_map(
-            function($raw)
-            {
+            function ($raw) {
                 $stat = explode(',', $raw);
 
                 return [
-                    'rank' => $stat[0],
+                    'rank'  => $stat[0],
                     'level' => $stat[1],
-                    'xp' => $stat[2],
+                    'xp'    => $stat[2],
                 ];
             },
             array_slice(
@@ -78,8 +78,7 @@ class API {
 
         $collection = new Collection();
 
-        $this->skills->each(function($skill) use ($collection, $raw)
-        {
+        $this->skills->each(function ($skill) use ($collection, $raw) {
             $collection->put($skill->get('name'), new Collection($raw[$skill->get('id')]));
         });
 
@@ -99,15 +98,15 @@ class API {
     /**
      * Calculates a players combat level
      *
-     * @param integer $attack
-     * @param integer $strength
-     * @param integer $magic
-     * @param integer $ranged
-     * @param integer $defence
-     * @param integer $constitution
-     * @param integer $prayer
-     * @param integer $summoning
-     * @return integer
+     * @param  int $attack
+     * @param  int $strength
+     * @param  int $magic
+     * @param  int $ranged
+     * @param  int $defence
+     * @param  int $constitution
+     * @param  int $prayer
+     * @param  int $summoning
+     * @return int
      */
     public function calculateCombatLevel($attack, $strength, $magic, $ranged, $defence, $constitution, $prayer, $summoning)
     {
@@ -115,5 +114,4 @@ class API {
 
         return floor(0.25 * ((1.3 * $highest) + $defence + $constitution + floor(0.5 * $prayer) + floor(0.5 * $summoning)));
     }
-
 }
