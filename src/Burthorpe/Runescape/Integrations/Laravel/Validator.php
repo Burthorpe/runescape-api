@@ -1,9 +1,11 @@
-<?php namespace Burthorpe\Runescape\Integrations\Laravel;
+<?php
+
+namespace Burthorpe\Runescape\Integrations\Laravel;
 
 use Burthorpe\Runescape\API;
 
-class Validator {
-
+class Validator
+{
     /*
      * API Instance
      *
@@ -14,6 +16,7 @@ class Validator {
     /*
      * Class constructor
      */
+
     public function __construct()
     {
         $this->api = new API;
@@ -28,9 +31,9 @@ class Validator {
      * @param n $validator
      * @return boolean
      */
+
     public function validateDisplayName($attribute, $value, $params, $validator)
     {
         return $this->api->validateDisplayName($value);
     }
-
 }

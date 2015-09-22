@@ -1,12 +1,14 @@
-<?php namespace Burthorpe\Runescape;
+<?php
+
+namespace Burthorpe\Runescape;
 
 use GuzzleHttp\Client as Guzzle;
 
 /**
  * @method \GuzzleHttp\Message\ResponseInterface get(string $url, array $options)
  */
-class Common {
-
+class Common
+{
     /*
      * Guzzle HTTP client for making requests
      *
@@ -17,6 +19,7 @@ class Common {
     /*
      * Class constructor
      */
+
     public function __construct()
     {
         $this->guzzle = new Guzzle([
@@ -25,7 +28,7 @@ class Common {
                     'User-Agent' => 'Burthorpe Runescape API',
                 ],
                 'exceptions' => false,
-            ]
+            ],
         ]);
     }
 
@@ -35,6 +38,7 @@ class Common {
      * @param string $rsn
      * @return boolean
      */
+
     public function validateDisplayName($rsn)
     {
         return (bool) preg_match('/^[a-z0-9\-_ ]{1,12}$/i', $rsn);
@@ -46,10 +50,10 @@ class Common {
      * @param string $number
      * @return float
      */
+
     public function expandNumber($number)
     {
-        switch(strtoupper(substr($number, -1)))
-        {
+        switch (strtoupper(substr($number, -1))) {
             case 'B':
                 $multiplier = 1000000000;
                 break;
@@ -72,14 +76,13 @@ class Common {
      * @param integer $number
      * @return string
      */
+
     public function shortenNumber($number)
     {
         $abbr = [9 => 'B', 6 => 'M', 3 => 'K'];
 
-        foreach($abbr as $exponent => $suffix)
-        {
-            if ($number >= pow(10, $exponent))
-            {
+        foreach ($abbr as $exponent => $suffix) {
+            if ($number >= pow(10, $exponent)) {
                 return intval($number / pow(10, $exponent)) . $suffix;
             }
         }
@@ -93,17 +96,16 @@ class Common {
      * @param integer $xp
      * @return integer
      */
+
     public function xpTolevel($xp)
     {
         $modifier = 0;
 
-        for($i = 1; $i <= 126; $i++)
-        {
+        for ($i = 1; $i <= 126; $i++) {
             $modifier += floor($i + 300 * pow(2, ($i / 7)));
             $level = floor($modifier / 4);
 
-            if ($xp < $level)
-            {
+            if ($xp < $level) {
                 return $i;
             }
         }
@@ -118,12 +120,12 @@ class Common {
      * @param integer $level
      * @return integer
      */
+
     public function levelToXp($level)
     {
         $xp = 0;
 
-        for ($i = 1; $i < $level; $i++)
-        {
+        for ($i = 1; $i < $level; $i++) {
             $xp += floor($i + 300 * pow(2, ($i / 7)));
         }
 
@@ -138,9 +140,9 @@ class Common {
      *
      * @return mixed
      */
+
     public function __call($method, $params)
     {
         return call_user_func_array([$this->guzzle, $method], $params);
     }
-
 }
