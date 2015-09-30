@@ -32,5 +32,5 @@ final class Crafting extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $isMembers = true;
+    protected $isMembers = false;
 }

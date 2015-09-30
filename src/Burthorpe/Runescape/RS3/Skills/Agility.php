@@ -32,5 +32,5 @@ final class Agility extends Skill
     /**
      * {@inheritdoc}
      */
-    protected $isMembers = false;
+    protected $isMembers = true;
 }
