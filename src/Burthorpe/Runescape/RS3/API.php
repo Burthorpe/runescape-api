@@ -2,7 +2,9 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 use Burthorpe\Runescape\Common;
+use Burthorpe\Runescape\RS3\Skills\Repository;
 use Illuminate\Support\Collection;
 
 class API
@@ -13,7 +15,7 @@ class API
     protected $common;
 
     /**
-     * @var \Burthorpe\Runescape\RS3\Skills
+     * @var \Burthorpe\Runescape\RS3\Skills\Repository
      */
     protected $skills;
 
@@ -32,7 +34,7 @@ class API
     public function __construct()
     {
         $this->common = new Common();
-        $this->skills = new Skills();
+        $this->skills = new Repository();
     }
 
     /**
@@ -58,9 +60,7 @@ class API
             ]
         );
 
-        if ($response->getStatusCode() !== 200) {
-            return false;
-        }
+        if ($response->getStatusCode() !== 200) return false;
 
         $raw = array_map(
             function ($raw) {
@@ -81,8 +81,13 @@ class API
 
         $collection = new Collection();
 
-        $this->skills->each(function ($skill) use ($collection, $raw) {
-            $collection->put($skill->get('name'), new Collection($raw[$skill->get('id')]));
+        $this->getSkills()->each(function (SkillContract $skill) use ($collection, $raw) {
+            $collection->put(
+                $skill->getName(),
+                new Collection(
+                    $raw[$skill->getId()]
+                )
+            );
         });
 
         return $collection;
@@ -91,7 +96,7 @@ class API
     /**
      * Get access to the skills helper
      *
-     * @return \Burthorpe\Runescape\RS3\Skills
+     * @return \Burthorpe\Runescape\RS3\Skills\Repository
      */
     public function getSkills()
     {
