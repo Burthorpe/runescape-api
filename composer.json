@@ -16,7 +16,6 @@
         "guzzlehttp/guzzle": "~5.1"
     },
     "require-dev": {
-      "mockery/mockery": "0.9.*"
     },
     "autoload": {
         "psr-4": {
