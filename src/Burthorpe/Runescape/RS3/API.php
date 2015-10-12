@@ -3,18 +3,12 @@
 namespace Burthorpe\Runescape\RS3;
 
 use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
-use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\Skills\Repository;
 use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
 
 class API
 {
-    /**
-     * @var \Burthorpe\Runescape\Common
-     */
-    protected $common;
-
     /**
      * @var \Burthorpe\Runescape\RS3\Skills\Repository
      */
@@ -41,7 +35,6 @@ class API
      */
     public function __construct()
     {
-        $this->common = new Common();
         $this->skills = new Repository();
 
         $this->guzzle = new Guzzle([
@@ -52,14 +45,6 @@ class API
                 'exceptions' => false,
             ],
         ]);
-    }
-
-    /**
-     * Call magic methods on \Burthorpe\Runescape\Common
-     */
-    public function __call($method, $args)
-    {
-        return call_user_func_array([$this->common, $method], $args);
     }
 
     /**
