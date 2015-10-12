@@ -13,7 +13,7 @@ class API
     protected $common;
 
     /**
-     * @var \Burthorpe\Runescape\RS3\Skills
+     * @var \Burthorpe\Runescape\RS3\Skills\Repository
      */
     protected $skills;
 
@@ -91,7 +91,7 @@ class API
     /**
      * Get access to the skills helper
      *
-     * @return \Burthorpe\Runescape\RS3\Skills
+     * @return \Burthorpe\Runescape\RS3\Skills\Repository
      */
     public function getSkills()
     {
