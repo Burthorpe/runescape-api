@@ -2,11 +2,11 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\Skills\Repository;
 use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
-use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 
 class API
 {
@@ -77,9 +77,7 @@ class API
             ]
         );
 
-        if ($response->getStatusCode() !== 200) {
-            return false;
-        }
+        if ($response->getStatusCode() !== 200) return false;
 
         $raw = array_map(
             function ($raw) {
@@ -100,8 +98,13 @@ class API
 
         $collection = new Collection();
 
-        $this->skills->each(function (SkillContract $skill) use ($collection, $raw) {
-            $collection->put($skill->getName(), new Collection($raw[$skill->getId()]));
+        $this->getSkills()->each(function (SkillContract $skill) use ($collection, $raw) {
+            $collection->put(
+                $skill->getName(),
+                new Collection(
+                    $raw[$skill->getId()]
+                )
+            );
         });
 
         return $collection;
