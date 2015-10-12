@@ -128,14 +128,4 @@ class Common
         // Check if our value is above 200m, if so return 200m, otherwise our value
         return ($xp > 200000000 ? 200000000 : $xp);
     }
-
-    /**
-     * Call magic methods on guzzle instance
-     *
-     * @return mixed
-     */
-    public function __call($method, $params)
-    {
-        return call_user_func_array([$this->guzzle, $method], $params);
-    }
 }
