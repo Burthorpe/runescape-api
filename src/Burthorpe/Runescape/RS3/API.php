@@ -3,6 +3,7 @@
 namespace Burthorpe\Runescape\RS3;
 
 use Burthorpe\Runescape\Common;
+use Burthorpe\Runescape\RS3\Skills\Repository;
 use Illuminate\Support\Collection;
 
 class API
@@ -32,7 +33,7 @@ class API
     public function __construct()
     {
         $this->common = new Common();
-        $this->skills = new Skills();
+        $this->skills = new Repository();
     }
 
     /**
