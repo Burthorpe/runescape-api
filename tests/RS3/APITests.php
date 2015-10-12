@@ -8,7 +8,7 @@ class APITests extends PHPUnit_Framework_TestCase {
     {
         $api = new API();
 
-        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills);
+        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills\Repository);
     }
 
     public function testStats()

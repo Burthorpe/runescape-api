@@ -10,28 +10,6 @@ use GuzzleHttp\Client as Guzzle;
 class Common
 {
     /**
-     * Guzzle HTTP client for making requests
-     *
-     * @var \GuzzleHttp\Client
-     */
-    protected $guzzle;
-
-    /**
-     * Class constructor
-     */
-    public function __construct()
-    {
-        $this->guzzle = new Guzzle([
-            'defaults' => [
-                'headers' => [
-                    'User-Agent' => 'Burthorpe Runescape API',
-                ],
-                'exceptions' => false,
-            ],
-        ]);
-    }
-
-    /**
      * Checks if the given string is a valid display name
      *
      * @param  string $rsn

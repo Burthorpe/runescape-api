@@ -5,6 +5,8 @@ namespace Burthorpe\Runescape\RS3;
 use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\Skills\Repository;
 use Illuminate\Support\Collection;
+use GuzzleHttp\Client as Guzzle;
+use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 
 class API
 {
@@ -17,6 +19,13 @@ class API
      * @var \Burthorpe\Runescape\RS3\Skills\Repository
      */
     protected $skills;
+
+    /**
+     * Guzzle HTTP client for making requests
+     *
+     * @var \GuzzleHttp\Client
+     */
+    protected $guzzle;
 
     /**
      * Array of resource URLs
@@ -34,6 +43,15 @@ class API
     {
         $this->common = new Common();
         $this->skills = new Repository();
+
+        $this->guzzle = new Guzzle([
+            'defaults' => [
+                'headers' => [
+                    'User-Agent' => 'Burthorpe Runescape API',
+                ],
+                'exceptions' => false,
+            ],
+        ]);
     }
 
     /**
@@ -51,7 +69,7 @@ class API
      */
     public function stats($rsn)
     {
-        $response = $this->common->get(
+        $response = $this->guzzle->get(
             $this->resources['hiscores'],
             ['query' => [
                     'player' => $rsn,
@@ -82,8 +100,8 @@ class API
 
         $collection = new Collection();
 
-        $this->skills->each(function ($skill) use ($collection, $raw) {
-            $collection->put($skill->get('name'), new Collection($raw[$skill->get('id')]));
+        $this->skills->each(function (SkillContract $skill) use ($collection, $raw) {
+            $collection->put($skill->getName(), new Collection($raw[$skill->getId()]));
         });
 
         return $collection;
