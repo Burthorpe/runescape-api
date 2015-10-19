@@ -3,7 +3,8 @@
 namespace Burthorpe\Runescape\RS3;
 
 use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
-use Burthorpe\Runescape\RS3\Skills\Repository;
+use Burthorpe\Runescape\RS3\Skills\Repository as SkillsRepository;
+use Burthorpe\Runescape\RS3\Stats\Repository as StatsRepository;
 use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
 
@@ -35,7 +36,7 @@ class API
      */
     public function __construct()
     {
-        $this->skills = new Repository();
+        $this->skills = new SkillsRepository();
 
         $this->guzzle = new Guzzle([
             'defaults' => [
@@ -64,35 +65,7 @@ class API
 
         if ($response->getStatusCode() !== 200) return false;
 
-        $raw = array_map(
-            function ($raw) {
-                $stat = explode(',', $raw);
-
-                return [
-                    'rank'  => $stat[0],
-                    'level' => $stat[1],
-                    'xp'    => $stat[2],
-                ];
-            },
-            array_slice(
-                explode("\n", $response->getBody()),
-                0,
-                $this->getSkills()->count()
-            )
-        );
-
-        $collection = new Collection();
-
-        $this->getSkills()->each(function (SkillContract $skill) use ($collection, $raw) {
-            $collection->put(
-                $skill->getName(),
-                new Collection(
-                    $raw[$skill->getId()]
-                )
-            );
-        });
-
-        return $collection;
+        return StatsRepository::make($response->getBody());
     }
 
     /**
