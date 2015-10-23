@@ -65,7 +65,7 @@ class API
 
         if ($response->getStatusCode() !== 200) return false;
 
-        return StatsRepository::make($response->getBody());
+        return StatsRepository::factory($response->getBody());
     }
 
     /**
