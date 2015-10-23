@@ -13,7 +13,7 @@ class Repository extends Collection
      * @param $rawFeed string Raw feed directly from Jagex
      * @return \Burthorpe\Runescape\RS3\Stats\Repository
      */
-    public static function make($rawFeed)
+    public static function factory($rawFeed)
     {
         $repository = new static;
         $skills = new SkillsRepository();
