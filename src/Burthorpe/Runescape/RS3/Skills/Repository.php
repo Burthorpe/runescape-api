@@ -2,18 +2,14 @@
 
 namespace Burthorpe\Runescape\RS3\Skills;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
-class Repository
+class Repository extends Collection
 {
-    /**
-     * @var \Illuminate\Support\Collection
-     */
-    protected $collection;
-
     public function __construct()
     {
-        $this->collection = new Collection([
+        parent::__construct([
             new Overall(),
             new Attack(),
             new Defence(),
@@ -44,11 +40,6 @@ class Repository
         ]);
     }
 
-    public function __call($method, $params)
-    {
-        return call_user_func_array([$this->collection, $method], $params);
-    }
-
     /**
      * Find a skill by its ID
      *
@@ -57,9 +48,9 @@ class Repository
      */
     public function find($id)
     {
-        return $this->collection->filter(function(Contract $skill) use ($id) {
+        return Arr::first($this->items, function($key, Contract $skill) use ($id) {
             return $skill->getId() === $id;
-        })->first();
+        }, null);
     }
 
     /**
@@ -70,10 +61,9 @@ class Repository
      */
     public function findByName($name)
     {
-        return $this->collection->filter(function(Contract $skill) use ($name) {
+        return Arr::first($this->items, function($key, Contract $skill) use ($name) {
             return $skill->getName() === strtolower($name);
-        })->first();
+        }, null);
     }
-
 
 }
