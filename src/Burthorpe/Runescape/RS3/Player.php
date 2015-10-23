@@ -2,6 +2,7 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\Skills\Attack;
 use Burthorpe\Runescape\RS3\Skills\Constitution;
 use Burthorpe\Runescape\RS3\Skills\Defence;
@@ -11,7 +12,6 @@ use Burthorpe\Runescape\RS3\Skills\Ranged;
 use Burthorpe\Runescape\RS3\Skills\Strength;
 use Burthorpe\Runescape\RS3\Skills\Summoning;
 use InvalidArgumentException;
-use Burthorpe\Runescape\Common;
 
 class Player
 {
@@ -44,10 +44,9 @@ class Player
     public function __construct($displayName)
     {
         $this->common = new Common();
-        $this->api = new API();
+        $this->api    = new API();
 
-        if ($this->common->validateDisplayName($displayName) === false)
-        {
+        if ($this->common->validateDisplayName($displayName) === false) {
             throw new InvalidArgumentException('Invalid Display Name given (Maximum of 12 characters and only contain letters, numbers, dashes, underscores and spaces)');
         }
 
@@ -61,7 +60,9 @@ class Player
      */
     public function getStats()
     {
-        if ($this->stats) return $this->stats;
+        if ($this->stats) {
+            return $this->stats;
+        }
 
         return $this->stats = $this->api->stats($this->displayName);
     }
@@ -69,7 +70,7 @@ class Player
     /**
      * Return the calculated combat level of this player
      *
-     * @param bool $float
+     * @param  bool $float
      * @return int
      */
     public function getCombatLevel($float = false)
@@ -93,5 +94,4 @@ class Player
     {
         return $this->displayName;
     }
-
 }

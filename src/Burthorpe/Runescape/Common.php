@@ -2,8 +2,6 @@
 
 namespace Burthorpe\Runescape;
 
-use GuzzleHttp\Client as Guzzle;
-
 /**
  * @method \GuzzleHttp\Message\ResponseInterface get(string $url, array $options)
  */
