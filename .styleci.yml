@@ -11,6 +11,7 @@ enabled:
   - duplicate_semicolon
   - empty_return
   - extra_empty_lines
+  - function_call_space
   - function_typehint_space
   - logical_not_operators_with_spaces
   - method_separation
