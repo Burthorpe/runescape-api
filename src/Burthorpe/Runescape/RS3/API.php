@@ -89,12 +89,15 @@ class API
      * @param  int $constitution
      * @param  int $prayer
      * @param  int $summoning
+     * @param  bool $float
      * @return int
      */
-    public function calculateCombatLevel($attack, $strength, $magic, $ranged, $defence, $constitution, $prayer, $summoning)
+    public function calculateCombatLevel($attack, $strength, $magic, $ranged, $defence, $constitution, $prayer, $summoning, $float = false)
     {
         $highest = max(($attack + $strength), (2 * $magic), (2 * $ranged));
 
-        return floor(0.25 * ((1.3 * $highest) + $defence + $constitution + floor(0.5 * $prayer) + floor(0.5 * $summoning)));
+        $cmb = floor(0.25 * ((1.3 * $highest) + $defence + $constitution + floor(0.5 * $prayer) + floor(0.5 * $summoning)));
+
+        return $float ? $cmb : (int) $cmb;
     }
 }
