@@ -43,4 +43,43 @@ class Repository extends Collection
 
         return $repository;
     }
+
+    /**
+     * Find a stat by the given skill ID
+     *
+     * @param $id
+     * @return \Burthorpe\Runescape\RS3\Stats\Contract|null
+     */
+    public function find($id)
+    {
+        return $this->filter(function(Contract $stat) use ($id) {
+            return $stat->getSkill()->getId() === $id;
+        })->first();
+    }
+
+    /**
+     * Find a stat by the given skill name
+     *
+     * @param $name
+     * @return \Burthorpe\Runescape\RS3\Stats\Contract|null
+     */
+    public function findByName($name)
+    {
+        return $this->filter(function(Contract $stat) use ($name) {
+            return $stat->getSkill()->getName() === $name;
+        })->first();
+    }
+
+    /**
+     * Find a stat by the given skill class
+     *
+     * @param $class
+     * @return \Burthorpe\Runescape\RS3\Stats\Contract|null
+     */
+    public function findByClass($class)
+    {
+        return $this->filter(function(Contract $stat) use ($class) {
+            return $stat->getSkill() instanceof $class;
+        })->first();
+    }
 }
