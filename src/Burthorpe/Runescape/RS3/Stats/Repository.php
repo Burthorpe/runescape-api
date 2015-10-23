@@ -16,7 +16,7 @@ class Repository extends Collection
     public static function factory($rawFeed)
     {
         $repository = new static;
-        $skills = new SkillsRepository();
+        $skills     = new SkillsRepository();
 
         $exploded = explode("\n", $rawFeed);
 
@@ -26,10 +26,9 @@ class Repository extends Collection
             $skills->count()
         );
 
-        for($id = 0; $id < count($spliced); $id++)
-        {
+        for ($id = 0; $id < count($spliced); $id++) {
             list($rank, $level, $experience) = explode(',', $spliced[$id]);
-            $skill = $skills->find($id);
+            $skill                           = $skills->find($id);
 
             $repository->push(
                 new Stat(
@@ -52,7 +51,7 @@ class Repository extends Collection
      */
     public function find($id)
     {
-        return $this->filter(function(Contract $stat) use ($id) {
+        return $this->filter(function (Contract $stat) use ($id) {
             return $stat->getSkill()->getId() === $id;
         })->first();
     }
@@ -65,7 +64,7 @@ class Repository extends Collection
      */
     public function findByName($name)
     {
-        return $this->filter(function(Contract $stat) use ($name) {
+        return $this->filter(function (Contract $stat) use ($name) {
             return $stat->getSkill()->getName() === $name;
         })->first();
     }
@@ -78,7 +77,7 @@ class Repository extends Collection
      */
     public function findByClass($class)
     {
-        return $this->filter(function(Contract $stat) use ($class) {
+        return $this->filter(function (Contract $stat) use ($class) {
             return $stat->getSkill() instanceof $class;
         })->first();
     }

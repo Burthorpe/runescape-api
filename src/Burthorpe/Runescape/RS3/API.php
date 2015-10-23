@@ -2,10 +2,8 @@
 
 namespace Burthorpe\Runescape\RS3;
 
-use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 use Burthorpe\Runescape\RS3\Skills\Repository as SkillsRepository;
 use Burthorpe\Runescape\RS3\Stats\Repository as StatsRepository;
-use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
 
 class API
@@ -63,7 +61,9 @@ class API
             ]
         );
 
-        if ($response->getStatusCode() !== 200) return false;
+        if ($response->getStatusCode() !== 200) {
+            return false;
+        }
 
         return StatsRepository::factory($response->getBody());
     }
@@ -81,14 +81,14 @@ class API
     /**
      * Calculates a players combat level
      *
-     * @param  int $attack
-     * @param  int $strength
-     * @param  int $magic
-     * @param  int $ranged
-     * @param  int $defence
-     * @param  int $constitution
-     * @param  int $prayer
-     * @param  int $summoning
+     * @param  int  $attack
+     * @param  int  $strength
+     * @param  int  $magic
+     * @param  int  $ranged
+     * @param  int  $defence
+     * @param  int  $constitution
+     * @param  int  $prayer
+     * @param  int  $summoning
      * @param  bool $float
      * @return int
      */

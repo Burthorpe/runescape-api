@@ -48,7 +48,7 @@ class Repository extends Collection
      */
     public function find($id)
     {
-        return Arr::first($this->items, function($key, Contract $skill) use ($id) {
+        return Arr::first($this->items, function ($key, Contract $skill) use ($id) {
             return $skill->getId() === $id;
         }, null);
     }
@@ -61,9 +61,8 @@ class Repository extends Collection
      */
     public function findByName($name)
     {
-        return Arr::first($this->items, function($key, Contract $skill) use ($name) {
+        return Arr::first($this->items, function ($key, Contract $skill) use ($name) {
             return $skill->getName() === strtolower($name);
         }, null);
     }
-
 }
