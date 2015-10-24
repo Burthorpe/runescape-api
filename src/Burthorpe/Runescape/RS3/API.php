@@ -2,9 +2,12 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Exception\UnknownPlayerException;
 use Burthorpe\Runescape\RS3\Skills\Repository as SkillsRepository;
 use Burthorpe\Runescape\RS3\Stats\Repository as StatsRepository;
 use GuzzleHttp\Client as Guzzle;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request;
 
 class API
 {
@@ -26,7 +29,7 @@ class API
      * @var array
      */
     protected $resources = [
-        'hiscores' => 'http://hiscore.runescape.com/index_lite.ws',
+        'hiscores' => 'http://hiscore.runescape.com/index_lite.ws?player=%s',
     ];
 
     /**
@@ -37,11 +40,8 @@ class API
         $this->skills = new SkillsRepository();
 
         $this->guzzle = new Guzzle([
-            'defaults' => [
-                'headers' => [
-                    'User-Agent' => 'Burthorpe Runescape API',
-                ],
-                'exceptions' => false,
+            'headers' => [
+                'User-Agent' => 'Burthorpe Runescape API',
             ],
         ]);
     }
@@ -49,20 +49,18 @@ class API
     /**
      * Get a players statistics from the hiscores API feed
      *
-     * @return mixed
+     * @return \Burthorpe\Runescape\RS3\Stats\Repository|bool
+     *
+     * @throws \Burthorpe\Exception\UnknownPlayerException
      */
     public function stats($rsn)
     {
-        $response = $this->guzzle->get(
-            $this->resources['hiscores'],
-            ['query' => [
-                    'player' => $rsn,
-                ],
-            ]
-        );
+        $request = new Request('GET', sprintf($this->resources['hiscores'], $rsn));
 
-        if ($response->getStatusCode() !== 200) {
-            return false;
+        try {
+            $response = $this->guzzle->send($request);
+        } catch (RequestException $e) {
+            throw new UnknownPlayerException('Unknown player');
         }
 
         return StatsRepository::factory($response->getBody());

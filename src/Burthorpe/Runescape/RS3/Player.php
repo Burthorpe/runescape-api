@@ -2,6 +2,7 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Exception\InvalidDisplayNameException;
 use Burthorpe\Runescape\Common;
 use Burthorpe\Runescape\RS3\Skills\Attack;
 use Burthorpe\Runescape\RS3\Skills\Constitution;
@@ -47,7 +48,7 @@ class Player
         $this->api    = new API();
 
         if ($this->common->validateDisplayName($displayName) === false) {
-            throw new InvalidArgumentException('Invalid Display Name given (Maximum of 12 characters and only contain letters, numbers, dashes, underscores and spaces)');
+            throw new InvalidDisplayNameException();
         }
 
         $this->displayName = $displayName;
@@ -56,7 +57,7 @@ class Player
     /**
      * Return the players stats
      *
-     * @return \Burthorpe\Runescape\RS3\Stats\Repository|bool
+     * @return \Burthorpe\Runescape\RS3\Stats\Repository
      */
     public function getStats()
     {

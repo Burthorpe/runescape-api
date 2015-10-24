@@ -11,12 +11,20 @@ class APITests extends PHPUnit_Framework_TestCase {
         $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills\Repository);
     }
 
-    public function testStats()
+    public function testStatsWithValidDisplayName()
     {
         $eoc = new API();
 
-        $this->assertTrue($eoc->stats('iWader') instanceof \Illuminate\Support\Collection);
-        $this->assertFalse($eoc->stats('1234567890123'));
+        $this->assertTrue($eoc->stats('iWader') instanceof \Burthorpe\Runescape\RS3\Stats\Repository);
+    }
+
+    public function testStatsWithInvalidDisplayName()
+    {
+        $eoc = new API();
+
+        $this->setExpectedException('\Burthorpe\Exception\UnknownPlayerException');
+
+        $eoc->stats('thisdisplaynameisjusttoolong');
     }
 
     public function testCalculateCombatLevel()
