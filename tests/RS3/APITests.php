@@ -8,14 +8,14 @@ class APITests extends PHPUnit_Framework_TestCase {
     {
         $api = new API();
 
-        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills\Repository);
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Repository::class, $api->getSkills());
     }
 
     public function testStatsWithValidDisplayName()
     {
         $eoc = new API();
 
-        $this->assertTrue($eoc->stats('iWader') instanceof \Burthorpe\Runescape\RS3\Stats\Repository);
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Stats\Repository::class, $eoc->stats('iWader'));
     }
 
     public function testStatsWithInvalidDisplayName()
