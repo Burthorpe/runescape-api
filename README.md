@@ -19,7 +19,7 @@ Currently only Laravel is supported for integrations, but you should be able to 
  Add the following to your service providers if your `config/app.php`
 
 ```php
-'Burthorpe\Runescape\Integrations\Laravel\BurthorpeRunescapeServiceProvider',
+Burthorpe\Runescape\Integrations\Laravel\BurthorpeRunescapeServiceProvider::class,
 ```
 
 ## Copyright & License
