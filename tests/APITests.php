@@ -12,7 +12,7 @@ class APITests extends PHPUnit_Framework_TestCase {
         $this->assertTrue($api->validateDisplayName('123456789012'));
         $this->assertFalse($api->validateDisplayName(''));
         $this->assertFalse($api->validateDisplayName('1234567890123'));
-        $this->assertTrue($api->validateDisplayName('iWader'));
+        $this->assertTrue($api->validateDisplayName('Drumgun'));
         $this->assertFalse($api->validateDisplayName('iW%d^r$'));
     }
 

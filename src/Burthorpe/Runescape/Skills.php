@@ -231,6 +231,14 @@ class Skills {
                 'combat' => false,
                 'members_only' => true,
             ]),
+            'invention' => new Collection([
+                'id' => 27,
+                'name' => 'invention',
+                'maximum_xp' => 200000000,
+                'maximum_level' => 99,
+                'combat' => false,
+                'members_only' => true,
+            ]),
         ]);
     }
 

@@ -8,7 +8,7 @@ class EvolutionOfCombatTests extends PHPUnit_Framework_TestCase {
     {
         $eoc = new EOC;
 
-        $this->assertTrue($eoc->stats('iWader') instanceof \Illuminate\Support\Collection);
+        $this->assertTrue($eoc->stats('Drumgun') instanceof \Illuminate\Support\Collection);
         $this->assertFalse($eoc->stats('1234567890123'));
     }
 
