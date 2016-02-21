@@ -63,7 +63,7 @@ class Player
     {
         if ($this->stats) return $this->stats;
 
-        return $this->stats = $this->api->stats($this->displayName);
+        return $this->stats = $this->api->stats($this->getDisplayName());
     }
 
     /**
