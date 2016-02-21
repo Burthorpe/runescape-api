@@ -4,14 +4,14 @@ class PlayerTests extends PHPUnit_Framework_TestCase {
 
     public function testInvalidDisplayNameLength()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         new \Burthorpe\Runescape\RS3\Player('thisdisplaynameistoolong');
     }
 
     public function testInvalidDisplayNameWithSymbols()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         new \Burthorpe\Runescape\RS3\Player('$£!@');
     }

@@ -20,9 +20,9 @@ class APITests extends PHPUnit_Framework_TestCase {
 
     public function testStatsForNonExistentPlayer()
     {
-        $eoc = new API();
+        $this->expectException(\Burthorpe\Exceptions\PlayerNotFound::class);
 
-        $this->setExpectedException(\Burthorpe\Exceptions\PlayerNotFound::class);
+        $eoc = new API();
 
         $eoc->stats('1234567890123');
     }
