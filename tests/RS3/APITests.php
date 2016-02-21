@@ -22,7 +22,7 @@ class APITests extends PHPUnit_Framework_TestCase {
     {
         $eoc = new API();
 
-        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Stats\Repository::class, $eoc->stats('iWader'));
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Stats\Repository::class, $eoc->stats('Drumgun'));
     }
 
     public function testStatsWithInvalidDisplayName()
