@@ -33,6 +33,7 @@ class RepositoryTests extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Summoning::class, $repository->find(24));
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Dungeoneering::class, $repository->find(25));
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Divination::class, $repository->find(26));
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Invention::class, $repository->find(27));
     }
 
     public function testFindByName()
@@ -66,6 +67,7 @@ class RepositoryTests extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Summoning::class, $repository->findByName('Summoning'));
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Dungeoneering::class, $repository->findByName('Dungeoneering'));
         $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Divination::class, $repository->findByName('Divination'));
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Invention::class, $repository->findByName('Invention'));
     }
 
 }
