@@ -2,9 +2,11 @@
 
 namespace Burthorpe\Runescape\RS3;
 
+use Burthorpe\Exceptions\PlayerNotFound;
 use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
 use Burthorpe\Runescape\RS3\Skills\Repository as SkillsRepository;
 use Burthorpe\Runescape\RS3\Stats\Repository as StatsRepository;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
 
@@ -27,7 +29,7 @@ class API
      *
      * @var array
      */
-    protected $resources = [
+    protected $endpoints = [
         'hiscores' => 'http://hiscore.runescape.com/index_lite.ws',
     ];
 
@@ -43,7 +45,6 @@ class API
                 'headers' => [
                     'User-Agent' => 'Burthorpe Runescape API',
                 ],
-                'exceptions' => false,
             ],
         ]);
     }
@@ -55,15 +56,20 @@ class API
      */
     public function stats($rsn)
     {
-        $response = $this->guzzle->get(
-            $this->resources['hiscores'],
-            ['query' => [
+        try {
+            $response = $this->guzzle->get(
+                $this->endpoints['hiscores'],
+                ['query' => [
                     'player' => $rsn,
                 ],
-            ]
-        );
+                ]
+            );
+        } catch(ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404)
+                throw new PlayerNotFound($rsn);
 
-        if ($response->getStatusCode() !== 200) return false;
+            throw $e;
+        }
 
         return StatsRepository::factory($response->getBody());
     }
