@@ -20,4 +20,4 @@ Burthorpe\Runescape\Integrations\Laravel\BurthorpeRunescapeServiceProvider::clas
 
 ## Copyright & License
 
-Copyright (c) 2015 Wade Urry - Released under the [MIT license](LICENSE).
+Copyright (c) 2016 Wade Urry - Released under the [MIT license](LICENSE).
