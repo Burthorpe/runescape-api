@@ -9,10 +9,6 @@ Provides an interface to interact with the runescape site and APIs.
 ```sh
 composer require burthorpe/runescape-api
 ```
-
-## Integrations
-
-Currently only Laravel is supported for integrations, but you should be able to use this with any framework or codebase
  
 ### Laravel
  
