@@ -8,7 +8,7 @@ class APITests extends PHPUnit_Framework_TestCase {
     {
         $api = new API();
 
-        $this->assertTrue($api->getSkills() instanceof \Burthorpe\Runescape\RS3\Skills\Repository);
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Skills\Repository::class, $api->getSkills());
     }
 
     public function testStatsForExistentPlayer()
@@ -18,13 +18,20 @@ class APITests extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf(\Illuminate\Support\Collection::class, $eoc->stats('Drumgun'));
     }
 
-    public function testStatsForNonExistentPlayer()
+    public function testStatsWithValidDisplayName()
     {
-        $this->expectException(\Burthorpe\Exceptions\PlayerNotFound::class);
+        $eoc = new API();
+
+        $this->assertInstanceOf(\Burthorpe\Runescape\RS3\Stats\Repository::class, $eoc->stats('iWader'));
+    }
+
+    public function testStatsWithInvalidDisplayName()
+    {
+        $this->expectException(\Burthorpe\Exception\UnknownPlayerException::class);
 
         $eoc = new API();
 
-        $eoc->stats('1234567890123');
+        $eoc->stats('thisdisplaynameisjusttoolong');
     }
 
     public function testCalculateCombatLevel()

@@ -2,13 +2,12 @@
 
 namespace Burthorpe\Runescape\RS3;
 
-use Burthorpe\Exceptions\PlayerNotFound;
-use Burthorpe\Runescape\RS3\Skills\Contract as SkillContract;
+use Burthorpe\Exception\UnknownPlayerException;
 use Burthorpe\Runescape\RS3\Skills\Repository as SkillsRepository;
 use Burthorpe\Runescape\RS3\Stats\Repository as StatsRepository;
-use GuzzleHttp\Exception\ClientException;
-use Illuminate\Support\Collection;
 use GuzzleHttp\Client as Guzzle;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request;
 
 class API
 {
@@ -41,10 +40,8 @@ class API
         $this->skills = new SkillsRepository();
 
         $this->guzzle = new Guzzle([
-            'defaults' => [
-                'headers' => [
-                    'User-Agent' => 'Burthorpe Runescape API',
-                ],
+            'headers' => [
+                'User-Agent' => 'Burthorpe Runescape API',
             ],
         ]);
     }
@@ -52,23 +49,18 @@ class API
     /**
      * Get a players statistics from the hiscores API feed
      *
-     * @return mixed
+     * @return \Burthorpe\Runescape\RS3\Stats\Repository|bool
+     *
+     * @throws \Burthorpe\Exception\UnknownPlayerException
      */
     public function stats($rsn)
     {
-        try {
-            $response = $this->guzzle->get(
-                $this->endpoints['hiscores'],
-                ['query' => [
-                    'player' => $rsn,
-                ],
-                ]
-            );
-        } catch(ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 404)
-                throw new PlayerNotFound($rsn);
+        $request = new Request('GET', $this->endpoints['hiscores'], ['query' => [$rsn]]);
 
-            throw $e;
+        try {
+            $response = $this->guzzle->send($request);
+        } catch (RequestException $e) {
+            throw new UnknownPlayerException('Unknown player');
         }
 
         return StatsRepository::factory($response->getBody());
@@ -87,14 +79,14 @@ class API
     /**
      * Calculates a players combat level
      *
-     * @param  int $attack
-     * @param  int $strength
-     * @param  int $magic
-     * @param  int $ranged
-     * @param  int $defence
-     * @param  int $constitution
-     * @param  int $prayer
-     * @param  int $summoning
+     * @param  int  $attack
+     * @param  int  $strength
+     * @param  int  $magic
+     * @param  int  $ranged
+     * @param  int  $defence
+     * @param  int  $constitution
+     * @param  int  $prayer
+     * @param  int  $summoning
      * @param  bool $float
      * @return int
      */

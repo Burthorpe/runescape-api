@@ -42,9 +42,9 @@ class Stat implements Contract
      */
     public function __construct(SkillContract $skill, $level, $rank, $experience)
     {
-        $this->skill = $skill;
-        $this->level = $level;
-        $this->rank = $rank;
+        $this->skill      = $skill;
+        $this->level      = $level;
+        $this->rank       = $rank;
         $this->experience = $experience;
     }
 
