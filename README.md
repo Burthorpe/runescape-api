@@ -24,4 +24,4 @@ Currently only Laravel is supported for integrations, but you should be able to 
 
 ## Copyright & License
 
-Copyright (c) 2014 Wade Urry - Released under the [MIT license](LICENSE).
+Copyright (c) 2016 Wade Urry - Released under the [MIT license](LICENSE).
