@@ -37,6 +37,7 @@ class Repository extends Collection
             new Summoning(),
             new Dungeoneering(),
             new Divination(),
+            new Invention(),
         ]);
     }
 
