@@ -29,7 +29,7 @@ class API
      * @var array
      */
     protected $endpoints = [
-        'hiscores' => 'http://hiscore.runescape.com/index_lite.ws',
+        'hiscores' => 'http://hiscore.runescape.com/index_lite.ws?player=%s',
     ];
 
     /**
@@ -55,12 +55,12 @@ class API
      */
     public function stats($rsn)
     {
-        $request = new Request('GET', $this->endpoints['hiscores'], ['query' => [$rsn]]);
+        $request = new Request('GET', sprintf($this->endpoints['hiscores'], $rsn));
 
         try {
             $response = $this->guzzle->send($request);
         } catch (RequestException $e) {
-            throw new UnknownPlayerException('Unknown player');
+            throw new UnknownPlayerException($rsn);
         }
 
         return StatsRepository::factory($response->getBody());
