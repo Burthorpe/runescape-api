@@ -239,6 +239,14 @@ class Skills {
                 'combat' => false,
                 'members_only' => true,
             ]),
+            'archaeology' => new Collection([
+                'id' => 28,
+                'name' => 'archaeology',
+                'maximum_xp' => 200000000,
+                'maximum_level' => 120,
+                'combat' => false,
+                'members_only' => false,
+            ])
         ]);
     }
 
