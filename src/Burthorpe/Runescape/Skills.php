@@ -235,7 +235,7 @@ class Skills {
                 'id' => 27,
                 'name' => 'invention',
                 'maximum_xp' => 200000000,
-                'maximum_level' => 99,
+                'maximum_level' => 120,
                 'combat' => false,
                 'members_only' => true,
             ]),
